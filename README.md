@@ -10,7 +10,7 @@ The Ubuntu version used in this guide is the [22.04](https://releases.ubuntu.com
 
 You can use a virtualization app on Windows like VirtuaBox, get a cloud service like Linode or Amazon EC2, install it in your own baremetal server, Raspberry Pi or using virtualization environments like Proxmox. In the future I would like to create a dockerized version of this project so it's super easy to run and deploy.
 
-This guide was inspired by the video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correct some commands and make it friendlier for non-linux users.
+This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correct some commands and make it friendlier for non-linux users.
 
 
 # Table of contents
