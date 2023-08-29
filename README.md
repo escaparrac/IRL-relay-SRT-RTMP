@@ -2,7 +2,7 @@
 
 This repo is a step by step guide to create a stream relay setup for IRL in Debian/Ubuntu. I made this guide in hopes so people can use this without having to pay money for servers and be able to selfhost their own and do more IRL streams or add remote cameras to their broadcast.
 
-The Ubuntu version used in this guide is the 22.04. Verison 20.04 should be fine and Debian 10, 11 and 12 should work too.
+The Ubuntu version used in this guide is the 22.04. Version 20.04 should be fine and Debian 10, 11 and 12 should work too. The firsts tests were done on a [TurnKey Core Debian 10VM](https://www.turnkeylinux.org/core).
 
 1 CPU, 1GB of RAM and 8GB of storage should be enough for hosting a couple of servers, but my suggestion would be to have 2GB of RAM at least.
 
