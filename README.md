@@ -14,13 +14,14 @@ You can use a virtualization app on Windows like VirtuaBox, get a cloud service 
 
 This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correct some commands and make it friendlier for non-linux users.
 
+Before starting, this guide assumes that you already have an Ubuntu/Debian system ready.  If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
 
 # Table of contents
 
 1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/blob/main/README.md#srt-with-stats-monitor-sls)
 2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/blob/main/README.md#rtmp-with-stats-monitor-nginx)
 3. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
-4. Useful
+4. Useful resources
 
 # SRT with stats monitor (SLS)
 ## Perform update and upgrade
@@ -91,6 +92,10 @@ srt {
     }
 }
 ```
+- Press CTRL + X
+- Y
+- Enter
+
 ## Finish SLS configuration and first run
 ```
 cd bin
@@ -179,9 +184,11 @@ sudo systemctl enable sls.service
 tutorial rtmp
 ```
 
-```
+
 extra
-noalbs
-duckdns
-enablessh
-openvpn
+# Install an Ubuntu VM Windows
+# enablessh
+# noalbs
+# duckdns
+# openvpn
+
