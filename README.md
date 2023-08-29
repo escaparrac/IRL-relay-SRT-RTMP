@@ -1,6 +1,6 @@
 # IRL-relay-SRT-RTMP
 
-This repo is a step by step guide to create a stream relay setup for IRL in Debian/Ubuntu. 
+This repo is a step by step guide on how to create a stream relay setup for IRL in Debian/Ubuntu. 
 
 During IRL streamings, if you lose the connection while you you are boardcasting, your Twitch/YouTube page will show you as Offline and your stream will end. This can mess up the viewer experience and the metrics. With a relay, instead of streaming directly to the platform, you are first streaming to a server and then from OBS, you pick up that video source and add it to your scenes. Now, the PC that has the OBS can be at home with a stable connection, high quality graphics and all your scenes configured and if your broadcast fails, the only thing that will happen is that the source will go black. We are going to install an automatic scene switcher on our server so if the connection fails or it's not stable, your OBS will change the scenes automatically to something like "having difficulties", "connection not stable", "offline source".
 
