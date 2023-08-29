@@ -5,7 +5,7 @@ This repo is a step by step guide to create a stream relay setup for IRL in Debi
 
 # Table of contents
 
-1. Create a SRT server with stats monitor
+1. [Create a SRT server with stats monitor](https://duckduckgo.com)
 2. Create a RTMP server with stats monitor
 3. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
 4. Useful
