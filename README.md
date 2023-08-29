@@ -65,9 +65,8 @@ cd srt-live-server
 sudo make -j8
 sudo mv sls.conf sls.bak
 sudo nano sls.conf
-
 ```
-### Sample sls.conf file
+### Sample sls.conf file - Copy and paste
 ```
 srt {
     worker_threads 1;
@@ -143,7 +142,7 @@ Now you can close the server doing CTRL + C in the console.
 cd ~
 sudo nano sls.sh
 ```
-### sls.sh file
+### sls.sh file - Copy and paste
 ```
 #!/bin/bash
 cd /home/ubuntu/srt-live-server/bin/
@@ -157,7 +156,7 @@ chmod +x sls.sh
 cd /etc/systemd/system
 sudo nano sls.service
 ```
-### sls.service file
+### sls.service file - Copy and paste
 ```
 [Unit]
 Description=sls
@@ -175,20 +174,22 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload
 sudo systemctl start sls.service
 sudo systemctl status sls.service
-*if everything is OK (active and running) let's enable the service as startup
+*if everything is OK (active and running) let's enable the service as a startup service
 sudo systemctl enable sls.service
 ```
+
+We are done with the SRT server. Now, you should configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
 
 # RTMP with stats monitor (nginx)
 ```
 tutorial rtmp
 ```
 
-
-extra
-# Install an Ubuntu VM Windows
-# enablessh
 # noalbs
-# duckdns
-# openvpn
+
+# Useful Resources
+## Install an Ubuntu VM Windows
+## enablessh
+## duckdns
+## openvpn
 
