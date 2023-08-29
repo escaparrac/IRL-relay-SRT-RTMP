@@ -1,7 +1,9 @@
 # IRL-relay-SRT-RTMP
-Step by Step IRL relay setup for IRL in Debian/Ubuntu
 
-This readmi is divided in several parts:
+This repo is a step by step guide to create a stream relay setup for IRL in Debian/Ubuntu. I made this guide in hopes so people can use this without having to pay money for servers and be able to selfhost their own and do more IRL streams or add remote cameras to their broadcast.
+
+
+# Table of contents
 
 1. Create a SRT server with stats monitor
 2. Create a RTMP server with stats monitor
