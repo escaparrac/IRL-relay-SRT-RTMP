@@ -152,7 +152,7 @@ cd /home/ubuntu/srt-live-server/bin/
 - Y
 - Enter
 ```
-chmod +x sls.sh
+sudo chmod +x sls.sh
 cd /etc/systemd/system
 sudo nano sls.service
 ```
