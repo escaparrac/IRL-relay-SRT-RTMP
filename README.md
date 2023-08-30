@@ -18,8 +18,8 @@ Before starting, this guide assumes that you already have an Ubuntu/Debian syste
 
 # Table of contents
 
-1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/blob/main/README.md#srt-with-stats-monitor-sls)
-2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/blob/main/README.md#rtmp-with-stats-monitor-nginx)
+1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP#srt-with-stats-monitor-sls)
+2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/#rtmp-with-stats-monitor-nginx)
 3. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
 4. Useful resources
 
