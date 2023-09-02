@@ -304,7 +304,23 @@ Config file for SLS SRT Stream
   }
 }
 ```
+Now we need to edit our .env file
+```
+sudo nano .env
+```
+Here, change your TWITCH_BOT_USERNAME for your username or your bot name
+For the OUATH, enter here to generate the key for your bot: https://twitchapps.com/tmi
+Once you are finished writing everything:
+
+- CTRL + X
+- Press Y
+- Enter
+  
 next
+```
+cd ~
+sudo nano noalbs.sh
+```
 ```
 #!/bin/bash
 cd /home/ubuntu/noalbs
