@@ -192,7 +192,8 @@ tar -xf noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
 rm -rf noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
 mv noalbs-v2.8.0-x86_64-unknown-linux-musl noalbs
 cd noalbs
-
+sudo mv config.json config.json.bak
+sudo nano config.json
 ```
 {
   "user": {
@@ -213,9 +214,9 @@ cd noalbs
       "rttOffline": null
     },
     "switchingScenes": {
-      "normal": "IRLLive",
-      "low": "LowBitrate",
-      "offline": "Desconectado"
+      "normal": "LIVE",
+      "low": "LOW BITRATE",
+      "offline": "OFFLINE"
     },
     "streamServers": [
       {
@@ -235,16 +236,16 @@ cd noalbs
   },
   "software": {
     "type": "Obs",
-    "host": "192.168.1.121",
-    "password": "Superider1!",
+    "host": "OBSWEBSOCKETIP",
+    "password": "OBSWEBSOCKETPASSWORD",
     "port": 4444
   },
   "chat": {
     "platform": "Twitch",
-    "username": "escaparrac",
+    "username": "YOURCHANNELID",
     "admins": [
-      "escaparrac",
-      "moobot"
+      "YOURCHANNELID",
+      "YOUTBOTID"
     ],
     "language": "ES",
     "prefix": "!",
