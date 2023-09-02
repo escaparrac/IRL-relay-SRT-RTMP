@@ -196,6 +196,7 @@ cd noalbs
 sudo mv config.json config.json.bak
 sudo nano config.json
 ```
+Config file for SLS SRT Stream
 ```
 {
   "user": {
@@ -233,25 +234,13 @@ sudo nano config.json
         "dependsOn": null,
         "enabled": true
       }
-      {
-        "streamServer": {
-         "type": "SrtLiveServer",
-         "statsUrl": "http://192.168.1.48:8181/stats",
-         "publisher": "live/stream/broadcast"
-        },
-        "name": "SRT",
-        "priority": 0,
-        "overrideScenes": null,
-        "dependsOn": null,
-        "enabled": true
-      }
     ]
   },
   "software": {
     "type": "Obs",
     "host": "OBSWEBSOCKETIP",
     "password": "OBSWEBSOCKETPASSWORD",
-    "port": 4444
+    "port": 4455
   },
   "chat": {
     "platform": "Twitch",
@@ -317,8 +306,32 @@ sudo nano config.json
 ```
 next
 ```
-
-
+#!/bin/bash
+cd /home/ubuntu/noalbs
+./noalbs
+```
+```
+cd /etc/systemd/system
+sudo nano noalbs.service
+```
+noalbs.service file
+```
+[Unit]
+Description=noalbs
+ 
+[Service]
+ExecStart=/root/noalbs.sh
+ 
+[Install]
+WantedBy=multi-user.target
+```
+```
+sudo systemctl daemon-reload
+sudo systemctl start noalbs.service
+sudo systemctl status noalbs.service
+*if everything is OK (active and running) let's enable the service as a startup service
+sudo systemctl enable noalbs.service
+```
 # Useful Resources
 ## Install an Ubuntu VM Windows
 ## enablessh
