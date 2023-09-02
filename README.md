@@ -186,6 +186,122 @@ tutorial rtmp
 ```
 
 # noalbs
+cd ~
+wget https://github.com/NOALBS/nginx-obs-automatic-low-bitrate-switching/releases/download/v2.8.0/noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
+tar -xf noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
+rm -rf noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
+mv noalbs-v2.8.0-x86_64-unknown-linux-musl noalbs
+cd noalbs
+
+```
+{
+  "user": {
+    "id": null,
+    "name": "escaparrac",
+    "passwordHash": null
+  },
+  "switcher": {
+    "bitrateSwitcherEnabled": true,
+    "onlySwitchWhenStreaming": false,
+    "instantlySwitchOnRecover": true,
+    "autoSwitchNotification": true,
+    "retryAttempts": 5,
+    "triggers": {
+      "low": 1000,
+      "rtt": 2500,
+      "offline": null,
+      "rttOffline": null
+    },
+    "switchingScenes": {
+      "normal": "IRLLive",
+      "low": "LowBitrate",
+      "offline": "Desconectado"
+    },
+    "streamServers": [
+      {
+  "streamServer": {
+    "type": "Nginx",
+    "statsUrl": "http://192.168.1.144/stat",
+    "application": "live",
+    "key": "stream"
+  },
+        "name": "RTMP",
+        "priority": 0,
+        "overrideScenes": null,
+        "dependsOn": null,
+        "enabled": true
+      }
+    ]
+  },
+  "software": {
+    "type": "Obs",
+    "host": "192.168.1.121",
+    "password": "Superider1!",
+    "port": 4444
+  },
+  "chat": {
+    "platform": "Twitch",
+    "username": "escaparrac",
+    "admins": [
+      "escaparrac",
+      "moobot"
+    ],
+    "language": "ES",
+    "prefix": "!",
+    "enablePublicCommands": false,
+    "enableModCommands": false,
+    "enableAutoStopStreamOnHostOrRaid": true,
+    "commands": {
+      "Refresh": {
+        "permission": "Mod",
+        "alias": [
+          "r"
+        ]
+      },
+      "Sourceinfo": {
+        "permission": "Mod",
+        "alias": null
+      },
+      "Trigger": {
+        "permission": "Mod",
+        "alias": null
+      },
+      "Fix": {
+        "permission": "Mod",
+        "alias": [
+          "f"
+        ]
+      },
+      "Bitrate": {
+        "permission": "Public",
+        "alias": [
+          "b"
+        ]
+      },
+      "Switch": {
+        "permission": "Mod",
+        "alias": [
+          "ss"
+        ]
+      }
+    }
+  },
+  "optionalScenes": {
+    "starting": null,
+    "ending": null,
+    "privacy": null,
+    "refresh": null
+  },
+  "optionalOptions": {
+    "twitchTranscodingCheck": false,
+    "twitchTranscodingRetries": 5,
+    "twitchTranscodingDelaySeconds": 15,
+    "offlineTimeout": null,
+    "recordWhileStreaming": false
+  }
+}
+```
+
 
 # Useful Resources
 ## Install an Ubuntu VM Windows
