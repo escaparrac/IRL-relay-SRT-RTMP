@@ -51,7 +51,7 @@ sudo git clone https://github.com/Haivision/srt.git
 cd srt
 sudo ./configure
 sudo make
-sudo git checkout v1.5.3 &&
+sudo git checkout v1.5.3
 sudo ./configure
 sudo make -j8
 sudo make install
