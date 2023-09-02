@@ -186,6 +186,7 @@ tutorial rtmp
 ```
 
 # noalbs
+```
 cd ~
 wget https://github.com/NOALBS/nginx-obs-automatic-low-bitrate-switching/releases/download/v2.8.0/noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
 tar -xf noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
@@ -194,6 +195,7 @@ mv noalbs-v2.8.0-x86_64-unknown-linux-musl noalbs
 cd noalbs
 sudo mv config.json config.json.bak
 sudo nano config.json
+```
 ```
 {
   "user": {
@@ -220,13 +222,24 @@ sudo nano config.json
     },
     "streamServers": [
       {
-  "streamServer": {
-    "type": "Nginx",
-    "statsUrl": "http://192.168.1.144/stat",
-    "application": "live",
-    "key": "stream"
-  },
-        "name": "RTMP",
+        "streamServer": {
+         "type": "SrtLiveServer",
+         "statsUrl": "http://192.168.1.48:8181/stats",
+         "publisher": "live/stream/broadcast"
+        },
+        "name": "SRT",
+        "priority": 0,
+        "overrideScenes": null,
+        "dependsOn": null,
+        "enabled": true
+      }
+      {
+        "streamServer": {
+         "type": "SrtLiveServer",
+         "statsUrl": "http://192.168.1.48:8181/stats",
+         "publisher": "live/stream/broadcast"
+        },
+        "name": "SRT",
         "priority": 0,
         "overrideScenes": null,
         "dependsOn": null,
@@ -301,6 +314,8 @@ sudo nano config.json
     "recordWhileStreaming": false
   }
 }
+```
+next
 ```
 
 
