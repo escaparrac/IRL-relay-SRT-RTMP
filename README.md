@@ -311,7 +311,6 @@ sudo nano .env
 Here, change your TWITCH_BOT_USERNAME for your username or your bot name
 For the OUATH, enter here to generate the key for your bot: https://twitchapps.com/tmi
 Once you are finished writing everything:
-
 - CTRL + X
 - Press Y
 - Enter
@@ -326,7 +325,11 @@ sudo nano noalbs.sh
 cd /home/ubuntu/noalbs
 ./noalbs
 ```
+- Press CTRL + X
+- Y
+- Enter
 ```
+sudo chmod +x noalbs.sh
 cd /etc/systemd/system
 sudo nano noalbs.service
 ```
@@ -341,6 +344,9 @@ ExecStart=/root/noalbs.sh
 [Install]
 WantedBy=multi-user.target
 ```
+- Press CTRL + X
+- Y
+- Enter
 ```
 sudo systemctl daemon-reload
 sudo systemctl start noalbs.service
