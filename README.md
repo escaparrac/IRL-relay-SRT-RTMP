@@ -10,11 +10,12 @@ The Ubuntu version used in this guide is the [22.04](https://releases.ubuntu.com
 
 1 CPU, 1GB of RAM and 8GB of storage should be enough for hosting a couple of servers, but my suggestion would be to have 2GB of RAM at least.
 
-You can use a virtualization app on Windows like VirtuaBox, get a cloud service like Linode or Amazon EC2, install it in your own baremetal server, Raspberry Pi or using virtualization environments like Proxmox. In the future I would like to create a dockerized version of this project so it's super easy to run and deploy.
+You can use any virtualization app on Windows like VirtuaBox, get a cloud service like Linode or Amazon EC2, install it in your own baremetal server, Raspberry Pi or using virtualization environments like Proxmox. In the future I would like to create a dockerized version of this project so it's super easy to run and deploy.
 
-This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correct some commands and make it friendlier for non-linux users.
+This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correctes some commands and made it friendlier for non-Linux users.
 
-Before starting, this guide assumes that you already have an Ubuntu/Debian system ready.  If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
+Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
+Also, the username for this tutorial is "ubuntu", so be wary to change it before executing the commands.
 
 # Table of contents
 
@@ -31,7 +32,7 @@ sudo apt update -y && sudo apt full-upgrade -y
 
 ## Install the required packages
 ```
-sudo apt install libinput-dev make cmake tcl openssl zlib1g-dev gcc perl net-tools nano ssh git zip unzip tclsh pkg-config libssl-dev build-essential -y
+sudo apt install libinput-dev make cmake tcl openssl zlib1g-dev gcc perl net-tools nano ssh git zip unzip tclsh pkg-config libssl-dev build-essential iputils-ping -y
 ```
 
 ## Configure the firewall
