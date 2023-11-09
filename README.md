@@ -15,14 +15,17 @@ You can use any virtualization app on Windows like VirtuaBox, get a cloud servic
 This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correctes some commands and made it friendlier for non-Linux users.
 
 Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
-Also, the username for this tutorial is "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
+Also, the username for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
 
 # Table of contents
 
 1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP#srt-with-stats-monitor-sls)
 2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/#rtmp-with-stats-monitor-nginx)
 3. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
-4. Useful resources
+4. Add SRTLA to your SRT server
+5. Create a OBS server in Windows
+6. Extras
+7. Additional resources
 
 # SRT with stats monitor (SLS)
 ## Perform update and upgrade
@@ -179,7 +182,7 @@ sudo systemctl status sls.service
 sudo systemctl enable sls.service
 ```
 
-We are done with the SRT server. Now, you should configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
+We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
 
 # RTMP with stats monitor (nginx)
 ```
@@ -197,12 +200,12 @@ cd noalbs
 sudo mv config.json config.json.bak
 sudo nano config.json
 ```
-Config file for SLS SRT Stream
+Config file for a SLS SRT Stream
 ```
 {
   "user": {
     "id": null,
-    "name": "escaparrac",
+    "name": "YOURCHANNELID",
     "passwordHash": null
   },
   "switcher": {
