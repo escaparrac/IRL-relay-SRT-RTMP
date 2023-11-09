@@ -139,7 +139,11 @@ If the configuration is done right, Larix should stay connected, no errors will 
 
 ![image](https://github.com/escaparrac/IRL-relay-SRT-RMPT/assets/65442318/f766e36b-0844-4811-a2c2-f2e48781da07)
 
-Now you can close the server doing CTRL + C in the console.
+To test it in OBS or similar apps, you can add a VLC or video source with the next IP: srt://0.0.0.0:8282/play/stream/broadcast (0.0.0.0 is your server ip)
+
+![image](https://github.com/escaparrac/IRL-relay-SRT-RMTP/assets/65442318/0fd4a2e7-be76-4c5c-a06f-d9e0239b1b35)
+
+If everything shows correctly, you can close the server doing CTRL + C in the open console.
 
 ## Launch the server at startup
 ```
