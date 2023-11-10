@@ -147,7 +147,7 @@ If everything shows correctly, you can close the server doing CTRL + C in the op
 
 We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
 
-## Launch SRTLA Relay Server
+## Launch SRTLA Relay Server (based on [dukins guide](https://github.com/dukins/irl-streaming-gopro-belabox-complete-guide/blob/main/README.md))
 
 ```
 cd ~
@@ -160,7 +160,7 @@ sudo ufw allow 8383/tcp
 sudo ufw allow 8383/udp
 ```
 
-## Launch SRTLA at startup (based on [dukins guide](https://github.com/dukins/irl-streaming-gopro-belabox-complete-guide/blob/main/README.md)
+## Launch SRTLA at startup
 
 ```
 cd ~
