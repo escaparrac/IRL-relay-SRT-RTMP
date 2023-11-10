@@ -148,6 +148,20 @@ If everything shows correctly, you can close the server doing CTRL + C in the op
 We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
 
 ## Launch SRTLA at startup
+
+```
+cd ~
+git clone https://github.com/Marlow925/srtla.git
+cd srtla/
+make
+
+sudo ufw status
+sudo ufw allow 8383/tcp
+sudo ufw allow 8383/udp
+```
+
+## Launch SRTLA at startup
+
 ```
 cd ~
 sudo nano srtla.sh
@@ -155,7 +169,7 @@ sudo nano srtla.sh
 ### srtla.sh file - Copy and paste
 ```
 #!/bin/bash
-cd /home/ubuntu/srtla && ./srtla_rec 8383 192.168.1.48 8282
+cd /home/ubuntu/srtla && ./srtla_rec 8383 0.0.0.0 8282
 ```
 - Press CTRL + X
 - Y
