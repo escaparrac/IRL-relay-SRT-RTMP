@@ -147,7 +147,7 @@ If everything shows correctly, you can close the server doing CTRL + C in the op
 
 We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
 
-## Launch SRTLA at startup
+## Launch SRTLA Relay Server
 
 ```
 cd ~
