@@ -145,6 +145,53 @@ To test it in OBS or similar apps, you can add a VLC or video source with the ne
 
 If everything shows correctly, you can close the server doing CTRL + C in the open console.
 
+We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
+
+## Launch SRTLA at startup
+```
+cd ~
+sudo nano srtla.sh
+```
+### srtla.sh file - Copy and paste
+```
+#!/bin/bash
+cd /home/ubuntu/srtla && ./srtla_rec 8383 192.168.1.48 8282
+```
+- Press CTRL + X
+- Y
+- Enter
+```
+sudo chmod +x srtla.sh
+cd /etc/systemd/system
+sudo nano srtla.service
+```
+### srtla.service file - Copy and paste
+```
+[Unit]
+Description=srtla
+ 
+[Service]
+ExecStart=/bin/bash /home/ubuntu/srtla.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+- Press CTRL + X
+- Y
+- Enter
+```
+sudo systemctl daemon-reload
+sudo systemctl start srtla.service
+sudo systemctl status srtla.service
+*if everything is OK (active and running) let's enable the service as a startup service
+sudo systemctl enable srtla.service
+```
+
+# RTMP with stats monitor (nginx)
+```
+tutorial rtmp
+```
+
 ## Launch the server at startup
 ```
 cd ~
@@ -186,12 +233,6 @@ sudo systemctl status sls.service
 sudo systemctl enable sls.service
 ```
 
-We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
-
-# RTMP with stats monitor (nginx)
-```
-tutorial rtmp
-```
 
 # noalbs
 ```
