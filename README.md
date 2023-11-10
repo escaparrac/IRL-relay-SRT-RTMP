@@ -160,7 +160,7 @@ sudo ufw allow 8383/tcp
 sudo ufw allow 8383/udp
 ```
 
-## Launch SRTLA at startup
+## Launch SRTLA at startup (based on [dukins guide](https://github.com/dukins/irl-streaming-gopro-belabox-complete-guide/blob/main/README.md)
 
 ```
 cd ~
