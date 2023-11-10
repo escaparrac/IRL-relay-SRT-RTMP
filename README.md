@@ -150,6 +150,10 @@ We are done with the SRT server. Now, you can configure the [NOALBS Service](htt
 
 ## Launch SRTLA Relay Server (based on [dukins guide](https://github.com/dukins/irl-streaming-gopro-belabox-complete-guide/blob/main/README.md))
 
+For the SRT server to work with Belabox, we will need to create a SRTLA relay. This will use the current SRT server and open up a port for the Belabox to connect to.
+
+We are going to download the srtla relay server from Marlow925's repo and open some ports for it to work. In this guide we used the port 8383.
+
 ```
 cd ~
 git clone https://github.com/Marlow925/srtla.git
@@ -160,6 +164,32 @@ sudo ufw status
 sudo ufw allow 8383/tcp
 sudo ufw allow 8383/udp
 ```
+To test if it works execute the following code:
+```
+cd /home/ubuntu/srtla && ./srtla_rec 8383 0.0.0.0 8282
+```
+You will see something like:
+```
+Trying to connect to SRT at 0.0.0.0:8282... success
+srtla_rec is now running
+```
+You can now go to BELABOX web UI and configure it this way in SRTLA SETTING
+
+```
+SRTLA receiver address: 0.0.0.0
+SRTLA receiver port: 8383
+SRT streamid: live/stream/broadcast
+SRT latency: 2000 ms
+```
+Once all the ionfo is filled, I suggest you to click on "Encoder Settings" and the choose h265_test_pattern. This will send the test_pattern to your srtla relay without needing to connect a camera.
+
+Now, press START at the top and you should see this message in your current console:
+
+```
+192.168.1.114:35266: group 0x55a0953224e0 registered
+192.168.1.114:35266 (group 0x55a0953224e0): connection registration
+```
+If everything is right, press CTRL+C to exit. Now we will create a service for this to start at startup
 
 ### Launch SRTLA at startup
 ```
@@ -167,6 +197,7 @@ cd ~
 sudo nano srtla.sh
 ```
 ### srtla.sh file - Copy and paste
+First port is the SRTLA desired port, second port is the current SRT server one.
 ```
 #!/bin/bash
 cd /home/ubuntu/srtla && ./srtla_rec 8383 0.0.0.0 8282
@@ -200,6 +231,8 @@ sudo systemctl status srtla.service
 *if everything is OK (active and running) let's enable the service as a startup service
 sudo systemctl enable srtla.service
 ```
+
+With this, we are done
 
 # RTMP with stats monitor (nginx)
 ```
