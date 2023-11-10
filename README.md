@@ -21,11 +21,12 @@ Also, the username for this tutorial will be "ubuntu", so be wary to change it b
 
 1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP#srt-with-stats-monitor-sls)
 2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/#rtmp-with-stats-monitor-nginx)
-3. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
-4. Add SRTLA to your SRT server
-5. Create a OBS server in Windows
-6. Extras
-7. Additional resources
+3. [Create a SRTLA server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#launch-srtla-relay-server-based-on-dukins-guide)
+4. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
+5. Add SRTLA to your SRT server
+6. Create a OBS server in Windows
+7. Extras
+8. Additional resources
 
 # SRT with stats monitor (SLS)
 ## Perform update and upgrade
@@ -160,8 +161,7 @@ sudo ufw allow 8383/tcp
 sudo ufw allow 8383/udp
 ```
 
-## Launch SRTLA at startup
-
+### Launch SRTLA at startup
 ```
 cd ~
 sudo nano srtla.sh
