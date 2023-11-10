@@ -152,7 +152,7 @@ We are done with the SRT server. Now, you can configure the [NOALBS Service](htt
 
 For the SRT server to work with Belabox, we will need to create a SRTLA relay. This will use the current SRT server and open up a port for the Belabox to connect to.
 
-We are going to download the srtla relay server from Marlow925's repo and open some ports for it to work. In this guide we used the port 8383.
+We are going to download the SRTLA relay server from Marlow925's repo and open some ports for it to work. In this guide we used the port 8383.
 
 ```
 cd ~
@@ -232,7 +232,8 @@ sudo systemctl status srtla.service
 sudo systemctl enable srtla.service
 ```
 
-With this, we are done
+With this, we are done with our SRTLA relay server.
+
 
 # RTMP with stats monitor (nginx)
 ```
