@@ -412,11 +412,13 @@ Once you are finished writing everything:
 - Press Y
 - Enter
   
-next
+We are going to create an executable file now:
+
 ```
 cd ~
 sudo nano noalbs.sh
 ```
+Copy and paste:
 ```
 #!/bin/bash
 cd /home/ubuntu/noalbs
@@ -430,13 +432,13 @@ sudo chmod +x noalbs.sh
 cd /etc/systemd/system
 sudo nano noalbs.service
 ```
-noalbs.service file
+noalbs.service file. Copy and paste:
 ```
 [Unit]
 Description=noalbs
  
 [Service]
-ExecStart=/root/noalbs.sh
+ExecStart=/bin/bash /home/ubuntu/noalbs.sh
  
 [Install]
 WantedBy=multi-user.target
