@@ -146,6 +146,47 @@ To test it in OBS or similar apps, you can add a VLC or video source with the ne
 
 If everything shows correctly, you can close the server doing CTRL + C in the open console.
 
+## Launch the server at startup
+```
+cd ~
+sudo nano sls.sh
+```
+### sls.sh file - Copy and paste
+```
+#!/bin/bash
+cd /home/ubuntu/srt-live-server/bin/
+./sls -c ../sls.conf
+```
+- Press CTRL + X
+- Y
+- Enter
+```
+sudo chmod +x sls.sh
+cd /etc/systemd/system
+sudo nano sls.service
+```
+### sls.service file - Copy and paste
+```
+[Unit]
+Description=sls
+ 
+[Service]
+ExecStart=/bin/bash /home/ubuntu/sls.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+- Press CTRL + X
+- Y
+- Enter
+```
+sudo systemctl daemon-reload
+sudo systemctl start sls.service
+sudo systemctl status sls.service
+*if everything is OK (active and running) let's enable the service as a startup service
+sudo systemctl enable sls.service
+```
+
 We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
 
 ## Launch SRTLA Relay Server (based on [dukins guide](https://github.com/dukins/irl-streaming-gopro-belabox-complete-guide/blob/main/README.md))
@@ -238,47 +279,6 @@ With this, we are done with our SRTLA relay server.
 # RTMP with stats monitor (nginx)
 ```
 tutorial rtmp
-```
-
-## Launch the server at startup
-```
-cd ~
-sudo nano sls.sh
-```
-### sls.sh file - Copy and paste
-```
-#!/bin/bash
-cd /home/ubuntu/srt-live-server/bin/
-./sls -c ../sls.conf
-```
-- Press CTRL + X
-- Y
-- Enter
-```
-sudo chmod +x sls.sh
-cd /etc/systemd/system
-sudo nano sls.service
-```
-### sls.service file - Copy and paste
-```
-[Unit]
-Description=sls
- 
-[Service]
-ExecStart=/bin/bash /home/ubuntu/sls.sh
-
-[Install]
-WantedBy=multi-user.target
-```
-- Press CTRL + X
-- Y
-- Enter
-```
-sudo systemctl daemon-reload
-sudo systemctl start sls.service
-sudo systemctl status sls.service
-*if everything is OK (active and running) let's enable the service as a startup service
-sudo systemctl enable sls.service
 ```
 
 
