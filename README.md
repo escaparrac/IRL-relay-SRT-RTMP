@@ -109,7 +109,7 @@ sudo ./sls -c ../sls.conf
 Console will be stuck with the SLS INFO, don't worry about that, we will handle it later.
 
 ## Check SLS connection
-Now we are going to download Larix Broadcaster or IRL Pro to test our server (whatever app that can stream to SRT servers work).
+Now we are going to download Larix Broadcaster or IRL Pro to test our server or our smartphone (whatever app that can stream to SRT servers work). Be sure to be connected to the same network/vpn or have your ports open on your router/service provider.
 
 ***BEWARE*** If you are using a remote server like Linode or Amazon EC2, you will need to open the ports 8181 and 8282 TPC/UDP so you can connect to the server remotelly.
 
