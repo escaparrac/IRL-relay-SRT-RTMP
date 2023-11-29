@@ -10,7 +10,7 @@ The Ubuntu version used in this guide is the [22.04](https://releases.ubuntu.com
 
 1 CPU, 1GB of RAM and 8GB of storage should be enough for hosting a couple of relay servers, but my suggestion would be to have 2GB of RAM at least.
 
-You can use any virtualization app on Windows like VirtuaBox, get a cloud service like Linode or Amazon EC2, install it in your own baremetal server, Raspberry Pi or using virtualization environments like Proxmox. In the future I would like to create a dockerized version of this project so it's super easy to run and deploy.
+You can use any virtualization app on Windows like VirtualBox, get a cloud service like Linode or Amazon EC2, install it in your own baremetal server, Raspberry Pi or using virtualization environments like Proxmox. In the future I would like to create a dockerized version of this project so it's super easy to run and deploy.
 
 This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correcteD some commands and made it friendlier for non-Linux users.
 
