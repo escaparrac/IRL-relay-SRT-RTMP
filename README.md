@@ -193,7 +193,7 @@ We are done with the SRT server. Now, you can configure the [NOALBS Service](htt
 
 For the SRT server to work with Belabox, we will need to create a SRTLA relay. This will use the current SRT server and open up a port for the Belabox to connect to.
 
-We are going to download the SRTLA relay server from Marlow925's repo and open some ports for it to work. In this guide we used the port 8383.
+We are going to download the SRTLA relay server from Marlow925's repo and open some ports for it to work. In this guide we used the port 8383. Remember to change the 0.0.0.0 IP to your local IP address.
 
 ```
 cd ~
@@ -227,8 +227,8 @@ Once all the ionfo is filled, I suggest you to click on "Encoder Settings" and t
 Now, press START at the top and you should see this message in your current console:
 
 ```
-192.168.1.114:35266: group 0x55a0953224e0 registered
-192.168.1.114:35266 (group 0x55a0953224e0): connection registration
+0.0.0.0:35266: group 0x55a0953224e0 registered
+0.0.0.0:35266 (group 0x55a0953224e0): connection registration
 ```
 If everything is right, press CTRL+C to exit. Now we will create a service for this to start at startup
 
@@ -238,7 +238,7 @@ cd ~
 sudo nano srtla.sh
 ```
 ### srtla.sh file - Copy and paste
-First port is the SRTLA desired port, second port is the current SRT server one.
+First port is the SRTLA desired port, second port is the current SRT server one. Remember to edit the 0.0.0.0 to your local ip address.
 ```
 #!/bin/bash
 cd /home/ubuntu/srtla && ./srtla_rec 8383 0.0.0.0 8282
@@ -283,6 +283,9 @@ tutorial rtmp
 
 
 # noalbs
+NOALBS (nginx-obs-automatic-low-bitrate-switching) is an automatic scene switcher for OBS. It will take your bitrate stats from your SRT or RTMP servers and if it reaches a treshhold, chance the scenes acordingly. The regular usage is to have one LIVE scene, one LOW BITRATE scene and one OFFLINE scene. Also consider creating a PRIVACY scene in your OBS so you can change it when you need to go to the barthroom, pay, sing documents or hide whatever
+
+First, we are going to download NOALBS from their repo, install it and configure it.
 ```
 cd ~
 wget https://github.com/NOALBS/nginx-obs-automatic-low-bitrate-switching/releases/download/v2.8.0/noalbs-v2.8.0-x86_64-unknown-linux-musl.tar.gz
@@ -293,7 +296,7 @@ cd noalbs
 sudo mv config.json config.json.bak
 sudo nano config.json
 ```
-Config file for a SLS SRT Stream
+Config file for a SLS SRT Stream. Copy, paste, and edit the fields that need to be edited:
 ```
 {
   "user": {
@@ -322,7 +325,7 @@ Config file for a SLS SRT Stream
       {
         "streamServer": {
          "type": "SrtLiveServer",
-         "statsUrl": "http://192.168.1.48:8181/stats",
+         "statsUrl": "http://x.x.x.x:8181/stats",
          "publisher": "live/stream/broadcast"
         },
         "name": "SRT",
@@ -401,6 +404,10 @@ Config file for a SLS SRT Stream
   }
 }
 ```
+- CTRL + X
+- Press Y
+- Enter
+
 Now we need to edit our .env file
 ```
 sudo nano .env
@@ -456,6 +463,25 @@ sudo systemctl enable noalbs.service
 # Useful Resources
 ## Install an Ubuntu VM Windows
 ## enablessh
-## duckdns
+## Configure a Dynamic DNS service with DuckDNS.org
+
+If you have Dynamic IP at home, having a dynamic DNS service will help you to not need to change your IP every now and then. Also, if you want to have a friendly domain name instead of your public IP wandering around, a Dynamic DNS service would be a good idea.
+
+DuckDNS is a free DynDNS service really easy to configure and use.
+
+First, we are going to create an account and a domain.
+
+- Head to: https://www.duckdns.org/
+- Sign in with your preferred method.
+- Add a domain (xxx.duckdns.org)
+- Click install select Linux and your domain at the bottom. *if you followed this guide, you should have an Ubuntu/Debian machine ready.
+- Follow the steps. if you dan't have cron installed, execute:
+```
+sudo apt -y install cron
+```
+- and Done!
+- 
+Now your server IP can be reached by xxx.duckdns.org. That means all your relays can be accessed by something like xxx.duckdns.org:8282.
+
 ## openvpn
 
