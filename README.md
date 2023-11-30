@@ -462,6 +462,13 @@ sudo systemctl enable noalbs.service
 ```
 # Useful Resources
 ## Install an Ubuntu VM Windows
+
+Not everyone has a server or a spare PC to install Ubuntu. Also, the resources needed to setup a relay or NOALBS are so little, that it might not be worth to power up one for it. Cloud services are a valid option, but since most of the ones reading this tutorial will be using OBS on their own PCs, it's really convenient that you run a Ubuntu VM in the same PC inside the same network.
+
+What is a VM? VM stands for Virtual Machine. In other words, you will install a app that is able to host other Operating Systems inside yours. This virtual marchines are isolated from your machine, so they are ideal to run small services or to test things. You could install all the virus in the world and none of them will actually jump into your PC (please don't try that).
+
+We are going to use VMware Workstation Player, the free version from VMware to host our VM in Windows. First, download and install the app from their (https://www.vmware.com/products/workstation-player.html)[official site]
+
 ## enablessh
 ## Configure a Dynamic DNS service with DuckDNS.org
 
