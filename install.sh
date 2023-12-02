@@ -27,3 +27,5 @@ sudo apt full-upgrade -y
 echo "Installing all the required packages"
 
 sudo apt install libinput-dev make cmake tcl openssl zlib1g-dev gcc perl net-tools nano ssh git zip unzip tclsh pkg-config libssl-dev build-essential iputils-ping -y
+
+
