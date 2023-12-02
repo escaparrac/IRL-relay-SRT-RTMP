@@ -545,7 +545,7 @@ Let's check if SSH server is installed:
 `sudo systemctl status ssh`
 Check if it's active (running)
 
-If yes, you can jump this command and jump to the next one
+If yes, you can skip this command and jump to the next one
 
 ```
 sudo apt update
@@ -562,11 +562,9 @@ Let's enable ssh incoming connections now:
 
 This will open the port 22 and make us able to connect remotely to the machine.
 
-Now, head to your Windows PC and let your VM open.
+Now, head to your Windows PC. We are going to use the latest Windows terminal that can be downloaded from [here](https://github.com/microsoft/terminal/releases) to connect to a Ubuntu VM on our same network.
 
-We are going to use the latest Windows terminal that can be downloaded from [here](https://github.com/microsoft/terminal/releases) to connect to a Ubuntu VM on our same network.
-
-Lets say our VM is at 192.168.1.126 and the user for that VM is ubuntu.
+Let's say our VM is at 192.168.1.126 and the user for that VM is ubuntu.
 
 We will write on the terminal: 
 `ssh ubuntu@192.168.1.126`
