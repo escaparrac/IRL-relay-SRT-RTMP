@@ -23,9 +23,10 @@ Also, the username for this tutorial will be "ubuntu", so be wary to change it b
 2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/#rtmp-with-stats-monitor-nginx)
 3. [Create a SRTLA server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#launch-srtla-relay-server-based-on-dukins-guide)
 4. [Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#install-noalbs-on-our-server)
-5. Create a OBS server in Windows
-6. Extras
-7. Additional resources
+5. Usefull resources
+    1. [Install an Ubuntu VM on Windows to host our server](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#install-an-ubuntu-virtual-machine-in-windows)
+    2. [Enable SSH to access our server console from Windows](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#enable-ssh-access-for-your-servervm)
+    3. [Configure a Dynamic DNS service with Duckdns](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#configure-a-dynamic-dns-service-with-duckdnsorg)
 
 # SRT with stats monitor (SLS)
 ## Perform update and upgrade
