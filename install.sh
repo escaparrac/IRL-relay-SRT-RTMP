@@ -21,8 +21,8 @@ echo "Executing main script logic..."
 
 echo "Updating and upgrading the OS"
 
-sudo apt update -y
-sudo apt full-upgrade -y
+sudo apt update -y -q >/dev/null
+sudo apt upgrade -y -q >/dev/null
 
 echo "Installing all the required packages"
 
