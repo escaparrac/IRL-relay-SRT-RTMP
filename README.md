@@ -472,8 +472,9 @@ Beware: you might need to enable virtuaization in your motherboard bios. With a 
 
 After the installation (and maybe some reboots) you will be on a small windows with some buttons.
 
-- We are going to download the 22.04 Ubuntu Server ISO for this tutorial. [Download](https://releases.ubuntu.com/jammy/ubuntu-22.04.3-live-server-amd64.iso)
-You can use other Ubuntu or Debian ISOs if you wish.
+We are going to download the 22.04 Ubuntu Server ISO for this tutorial. [Download](https://releases.ubuntu.com/jammy/ubuntu-22.04.3-live-server-amd64.iso) You can use other Ubuntu or Debian ISOs if you wish.
+
+- Open VWware Workstation Player
 - Press: Create a New Virtual Machine
 - Add installer disc image file. Press next.
 - Write a Virtual Machine Name
