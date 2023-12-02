@@ -103,6 +103,7 @@ make -s > /dev/null 2>&1
 echo "SRTLA Relay Server installed"
 
 echo "Configuring SRTLA Relay Server service on startup"
+echo "Downloading srtla.sh file from repo"
 cd ~
 curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh" >/dev/null
 sudo chmod +x srtla.sh
