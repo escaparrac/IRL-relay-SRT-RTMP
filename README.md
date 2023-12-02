@@ -500,7 +500,7 @@ Now the VM will power up, and you will be welcomed to the Ubuntu Server Installe
   - Click Save
 - Scroll down and press Done
 - On configure proxy press Done
-- Wait untill the tests are ready and press Done
+- Wait until the tests are ready and press Done
 - On guided storage scroll down and press Done and Done again. Then select Continue and Enter
 - On the profile setup:
     - name: whatever you want
@@ -508,12 +508,12 @@ Now the VM will power up, and you will be welcomed to the Ubuntu Server Installe
     - username: ubuntu (you can choose whatever you want, but the tutorial is made with ubuntu user)
     - fill the both password fields and select Done
 - On upgrade to ubuntu pro press Continue
-- Press space to install OpenSSH server and select Done (we will configure this later, 
+- Press space to install OpenSSH server and select Done (we will configure this later [here](https://github.com/escaparrac/IRL-relay-SRT-RMTP/blob/main/README.md#enablessh)
 - Press Tab and Done
 - Wait for the install to end
 - Scroll to Reboot now and press Enter
 
-You might end up in a loop now (failed unmounting /cdrom). There will be a button below the window with something like "I finished installig". Click it and press enter. Ubuntu should boot up.
+You might end up in a loop now (failed unmounting /cdrom). There will be a button below the window with something like "I finished installing". Click it and press enter. Ubuntu should boot up.
 
 When everything is booted up, you can press Enter and it will show something like:
 `srt-server-ubuntu login:`
