@@ -533,16 +533,36 @@ Let's perform something now:
 - If a pink screen comes, press Tab and Enter at the Ok button
 
 Now your machine is updated!
-
-Let's enable ssh incoming connections now:
-`sudo ufw allow ssh` and press enter
-`sudo ufw enable`
-This will open the port 22 and make us able to connect remotely to the machine.
   
 ## Enable SSH access for your server/VM
 
 We will try to connect to our Ubuntu VM from another computer. This will help us to use more friendlier apps than the OS console o make us be able to copy and paste nicely. You can even access from your smartphone or tablet if you want.
 If you are using a cloud service for hosting your VM, they should have clear instructions on how to SSH.
+
+First, head into your VM/server and write:
+
+Let's check if SSH server is installed:
+`sudo systemctl status ssh`
+Check if it's active (running)
+
+If yes, you can jump this command and jump to the next one
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install openssh-server
+sudo systemctl status ssh
+```
+If it's active (running) now, keep on.
+
+Let's enable ssh incoming connections now:
+
+`sudo ufw allow ssh` and press enter
+`sudo ufw enable`
+
+This will open the port 22 and make us able to connect remotely to the machine.
+
+Now, head to your Windows PC and let your VM open.
 
 We are going to use the latest Windows terminal that can be downloaded from [here](https://github.com/microsoft/terminal/releases) to connect to a Ubuntu VM on our same network.
 
