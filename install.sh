@@ -37,7 +37,7 @@ echo "y" | sudo ufw enable >/dev/null
 echo "Firewall enabled"
 echo "Downloading and installing SRT Server"
 
-sudo git clone https://github.com/Haivision/srt.git >/dev/null
+sudo git clone https://github.com/Haivision/srt.git -q >/dev/null
 cd srt
 sudo ./configure >/dev/null
 sudo make >/dev/null
@@ -51,7 +51,7 @@ echo "SRT Server correctly installed"
 
 echo "Downloading and installing SLS"
 
-sudo git clone https://gitlab.com/mattwb65/srt-live-server.git >/dev/null
+sudo git clone https://gitlab.com/mattwb65/srt-live-server.git -q >/dev/null
 cd srt-live-server >/dev/null
 sudo make -j8 >/dev/null
 sudo mv sls.conf sls.bak >/dev/null
