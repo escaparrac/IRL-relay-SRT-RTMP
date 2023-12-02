@@ -105,7 +105,7 @@ echo "Downloading srtla.sh file from repo"
 cd ~
 sudo curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
 sudo chmod +x srtla.sh
-sudo sed -i "2s|.*|cd /home/$username/srtla && ./srtla_rec 8383 0.0.0.0 8282|" srtla.sh
+sudo sed -i "2s|.*|cd /home/$username/srtla|" srtla.sh
 sudo chmod +x srtla.sh
 
 echo "Creating the SRTLA service"
