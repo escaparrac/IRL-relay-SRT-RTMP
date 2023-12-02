@@ -13,3 +13,5 @@ while true; do
     fi
 
 echo "script continues"
+
+done
