@@ -2,6 +2,7 @@
 
 #!/bin/bash
 user=$(whoami)
+localip=$(hostanme -I)
 
 # Main script logic comes here
 echo "Executing main script logic..."
@@ -59,3 +60,9 @@ sudo mv sls.conf sls.bak
 echo "Downloading the sample sls.conf file from the repository"
 curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf" >/dev/null
 echo "sls.conf Downloaded"
+echo "Finishing SLS configuration"
+cd bin
+sudo ldconfig
+echo "SLS correctly installed"
+echo "To conn
+
