@@ -73,13 +73,13 @@ echo "SLS correctly installed"
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
 cd ~
-sudo curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >/dev/null
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh"
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
 
 echo "Creating the SLS service"
 cd /etc/systemd/system
-sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service" >/dev/null
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service"
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/sls.sh|" sls.service
 
 echo "Enabling SLS service to start on boot"
