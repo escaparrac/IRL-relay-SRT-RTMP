@@ -37,7 +37,7 @@ echo "y" | sudo ufw enable >/dev/null
 echo "Firewall enabled"
 echo "Downloading and installing SRT Server"
 
-sudo git clone https://github.com/Haivision/srt.git -q >/dev/null
+sudo git clone https://github.com/Haivision/srt.git -q 2>&1 >/dev/null
 cd srt
 sudo ./configure 2>&1 >/dev/null
 sudo make -s 2>&1 >/dev/null
