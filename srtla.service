@@ -1,0 +1,8 @@
+[Unit]
+Description=srtla
+ 
+[Service]
+ExecStart=/bin/bash /home/ubuntu/srtla.sh
+
+[Install]
+WantedBy=multi-user.target
