@@ -62,7 +62,7 @@ sudo make -j8 -s > /dev/null 2>&1
 sudo mv sls.conf sls.bak
 
 echo "Downloading the sample sls.conf file from the repository"
-curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf" >/dev/null
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf" >/dev/null
 echo "sls.conf Downloaded"
 
 echo "Finishing SLS configuration"
@@ -73,7 +73,7 @@ echo "SLS correctly installed"
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
 cd ~
-curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >/dev/null
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >/dev/null
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
 
@@ -105,7 +105,7 @@ echo "SRTLA Relay Server installed"
 echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
 cd ~
-curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh" >/dev/null
+sudo curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh" >/dev/null
 sudo chmod +x srtla.sh
 sudo sed -i "2s|.*|cd /home/$username/srtla && ./srtla_rec 8383 0.0.0.0 8282|" srtla.sh
 sudo chmod +x srtla.sh
