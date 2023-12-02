@@ -508,7 +508,7 @@ Now the VM will power up, and you will be welcomed to the Ubuntu Server Installe
     - username: ubuntu (you can choose whatever you want, but the tutorial is made with ubuntu user)
     - fill the both password fields and select Done
 - On upgrade to ubuntu pro press Continue
-- Press space to install OpenSSH server and select Done (we will configure this later [here](https://github.com/escaparrac/IRL-relay-SRT-RMTP/blob/main/README.md#enablessh)
+- Press space to install OpenSSH server and select Done (we will configure this later [here](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#enable-ssh-access-for-your-servervm)
 - Press Tab and Done
 - Wait for the install to end
 - Scroll to Reboot now and press Enter
@@ -556,6 +556,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 Write yes and press enter.
 
 You should be inside the VM now from Windows. Now you can follow the first part of the tutorial more easily than from the Ubuntu console directly.
+
 ![image](https://github.com/escaparrac/IRL-relay-SRT-RMTP/assets/65442318/95fe82ef-53c2-4d25-981a-8b71336d2ae2)
 
 Note: this is not the safest way to do SSH to a machine, but since it's a VM inside your network, I won't make you generate certificates or edit linux files. If you want to read about that you can check [here](https://goteleport.com/blog/how-to-ssh-properly/)
