@@ -15,7 +15,15 @@ while true; do
         echo "Invalid input. Please enter 'yes' or 'no'. If you want to exit the script, press CTRL + C."
     fi
 done
-
 # Main script logic comes here
 echo "Executing main script logic..."
 # Add your main script logic below this line
+
+echo "Updating and upgrading the OS"
+
+sudo apt update -y
+sudo apt full-upgrade -y
+
+echo "Installing all the required packages"
+
+sudo apt install libinput-dev make cmake tcl openssl zlib1g-dev gcc perl net-tools nano ssh git zip unzip tclsh pkg-config libssl-dev build-essential iputils-ping -y
