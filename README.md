@@ -23,10 +23,9 @@ Also, the username for this tutorial will be "ubuntu", so be wary to change it b
 2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/#rtmp-with-stats-monitor-nginx)
 3. [Create a SRTLA server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#launch-srtla-relay-server-based-on-dukins-guide)
 4. Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate
-5. Add SRTLA to your SRT server
-6. Create a OBS server in Windows
-7. Extras
-8. Additional resources
+5. Create a OBS server in Windows
+6. Extras
+7. Additional resources
 
 # SRT with stats monitor (SLS)
 ## Perform update and upgrade
@@ -469,6 +468,69 @@ What is a VM? VM stands for Virtual Machine. In other words: you will install a 
 
 We are going to use VMware Workstation Player, the free version from VMware to host our VM in Windows. First, download and install the app from their [official site](https://www.vmware.com/products/workstation-player.html).
 
+Beware: you might need to enable virtuaization in your motherboard bios. With a quick look at google searching for "gigabyte/asus/msi enable virtualization intel/amd", you can check how to enable it in your system.
+
+After the installation (and maybe some reboots) you will be on a small windows with some buttons.
+
+- We are going to download the 22.04 Ubuntu Server ISO for this tutorial. [Download](https://releases.ubuntu.com/jammy/ubuntu-22.04.3-live-server-amd64.iso)
+You can use other Ubuntu or Debian ISOs if you wish.
+- Press: Create a New Virtual Machine
+- Add installer disc image file. Press next.
+- Write a Virtual Machine Name
+- Chose a location (this is where the VM file will be stored). Press next.
+- Write 8GB disk size, choose single file. Press next.
+- Click Customize Hardware
+- Go to Memory and lower it from 4GB to 2GB.
+- Under network adapter, choose Bridged.
+- Press Close.
+- Press Finish.
+
+Now the VM will power up, and you will be welcomed to the Ubuntu Server Installer. You can navigate with your keyboard arrow keys, tab, space and Enter Key.
+
+- Choose your language and press Enter
+- Choose update to the new installer and press Enter
+- Choose your keyboard (default should be ok) and press Enter
+- Press Enter on the next screen (type of isntallation)
+- On network connection, you can press enter, but I suggest you to assign a static IP here. For that
+  - Scroll up to eth -> Press enter, go down to Edit IPv4 -> press Enter -> press Enter again, choose manual and Enter again.
+    - subnet: 192.168.1.0/24 (this is your local ip range)
+    - address: 192.168.1.126 (this is the chosen ip address for this VM)
+    - gatewat: 192.168.1.1 (this is the router's ip)
+    - name servers 1.1.1.1,8.8.8.8 (you can use your own here if you know them)
+  - Click Save
+- Scroll down and press Done
+- On configure proxy press Done
+- Wait untill the tests are ready and press Done
+- On guided storage scroll down and press Done and Done again. Then select Continue and Enter
+- On the profile setup:
+    - name: whatever you want
+    - your servers name: *write a name for your server to be seen in the network. example: srt-server-ubuntu
+    - username: ubuntu (you can choose whatever you want, but the tutorial is made with ubuntu user)
+    - fill the both password fields and select Done
+- On upgrade to ubuntu pro press Continue
+- Press space to install OpenSSH server and select Done (we will configure this later, 
+- Press Tab and Done
+- Wait for the install to end
+- Scroll to Reboot now and press Enter
+
+You might end up in a loop now (failed unmounting /cdrom). There will be a button below the window with something like "I finished installig". Click it and press enter. Ubuntu should boot up.
+
+When everything is booted up, you can press Enter and it will show something like:
+`srt-server-ubuntu login:`
+- write ubuntu and press Enter
+- write your password (you can't see what it's written, but it's writing, trust me) and press Enter.
+
+Boom, you are inside your own Ubuntu VM!
+
+Let's perform something now:
+- Write sudo apt update and press Enter
+- Write your password and press Enter
+- Write sudo apt upgrade and press Enter
+- You might need to press Y and Enter
+- If a pink screen comes, press Tab and Enter at the Ok button
+
+Now your machine is updated!
+  
 
 
 ## enablessh
