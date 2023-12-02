@@ -1,8 +1,9 @@
 # This script will install an SRT relay with SRTLA and NOALBS.
 
 #!/bin/bash
-user=$(whoami)
-localip=$(hostanme -I)
+username=$(whoami)
+localip=$(hostname -I)
+export username
 
 # Main script logic comes here
 echo "Executing main script logic..."
@@ -60,9 +61,24 @@ sudo mv sls.conf sls.bak
 echo "Downloading the sample sls.conf file from the repository"
 curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf" >/dev/null
 echo "sls.conf Downloaded"
+
 echo "Finishing SLS configuration"
 cd bin
 sudo ldconfig
 echo "SLS correctly installed"
-echo "To conn
+
+echo "Creating startup scripts and services"
+echo "Downloading sls.sh file from repo"
+cd ~
+curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >/dev/null
+sudo chmod +x sls.sh
+
+cd /etc/systemd/system
+curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service" >/dev/null
+sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/sls.sh|" sls.service
+
+
+
+
+echo "To connect to the server use $localip:8282"
 
