@@ -23,39 +23,39 @@ echo "All packages installed correctly"
 
 echo "Preparing ports to be open. By default 8181 = SLS HTTP, 8282 = SLS Server, 8383 = SRTLA, 22 = SSH"
 
-sudo ufw allow 8181/udp
-sudo ufw allow 8181/tcp
-sudo ufw allow 8282/udp
-sudo ufw allow 8282/tcp
-sudo ufw allow 22/tcp
-sudo ufw allow 22/udp
+sudo ufw allow 8181/udp >/dev/null
+sudo ufw allow 8181/tcp >/dev/null
+sudo ufw allow 8282/udp >/dev/null
+sudo ufw allow 8282/tcp >/dev/null
+sudo ufw allow 22/tcp >/dev/null
+sudo ufw allow 22/udp >/dev/null
 
 echo "Enabling the firewall service"
 
-echo "y" | sudo ufw enable
+echo "y" | sudo ufw enable >/dev/null
 
 echo "Firewall enabled"
 echo "Downloading and installing SRT Server"
 
-sudo git clone https://github.com/Haivision/srt.git
+sudo git clone https://github.com/Haivision/srt.git >/dev/null
 cd srt
-sudo ./configure
-sudo make
-sudo git checkout v1.5.3
-sudo ./configure
-sudo make -j8
-sudo make install
+sudo ./configure >/dev/null
+sudo make >/dev/null
+sudo git checkout v1.5.3 >/dev/null
+sudo ./configure >/dev/null
+sudo make -j8 >/dev/null
+sudo make install >/dev/null
 cd ../
 
 echo "SRT Server correctly installed"
 
 echo "Downloading and installing SLS"
 
-sudo git clone https://gitlab.com/mattwb65/srt-live-server.git
-cd srt-live-server
-sudo make -j8
-sudo mv sls.conf sls.bak
+sudo git clone https://gitlab.com/mattwb65/srt-live-server.git >/dev/null
+cd srt-live-server >/dev/null
+sudo make -j8 >/dev/null
+sudo mv sls.conf sls.bak >/dev/null
 
 echo "Downloading the sample sls.conf file from the repository"
-curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf"
+curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf" >/dev/null
 echo "sls.conf Downloaded"
