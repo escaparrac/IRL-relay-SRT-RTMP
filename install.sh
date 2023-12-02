@@ -74,7 +74,7 @@ curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.
 sudo chmod +x sls.sh
 
 cd /etc/systemd/system
-curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service" >/dev/null
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service" >/dev/null
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/sls.sh|" sls.service
 
 
