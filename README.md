@@ -555,7 +555,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 Write yes and press enter.
 
-You should be inside the VM now from Windows. Now you can follow the first part of the tutorial more easily than from the Ubuntu console directly.
+You should now be inside the VM from Windows. Now you can follow the first part of the tutorial more easily than from the Ubuntu console directly.
 
 ![image](https://github.com/escaparrac/IRL-relay-SRT-RMTP/assets/65442318/95fe82ef-53c2-4d25-981a-8b71336d2ae2)
 
