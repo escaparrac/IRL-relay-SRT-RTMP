@@ -39,12 +39,12 @@ echo "Downloading and installing SRT Server"
 
 sudo git clone https://github.com/Haivision/srt.git -q >/dev/null
 cd srt
-sudo ./configure >/dev/null
-sudo make >/dev/null
-sudo git checkout v1.5.3 >/dev/null
-sudo ./configure >/dev/null
-sudo make -j8 >/dev/null
-sudo make install >/dev/null
+sudo ./configure 2>&1 >/dev/null
+sudo make -s 2>&1 >/dev/null
+sudo git checkout v1.5.3 2>&1 >/dev/null
+sudo ./configure 2>&1 >/dev/null
+sudo make -j8 -s 2>&1 >/dev/null
+sudo make install -s 2>&1 >/dev/null
 cd ../
 
 echo "SRT Server correctly installed"
@@ -53,7 +53,7 @@ echo "Downloading and installing SLS"
 
 sudo git clone https://gitlab.com/mattwb65/srt-live-server.git -q >/dev/null
 cd srt-live-server >/dev/null
-sudo make -j8 >/dev/null
+sudo make -j8 -s >/dev/null
 sudo mv sls.conf sls.bak >/dev/null
 
 echo "Downloading the sample sls.conf file from the repository"
