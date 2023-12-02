@@ -25,10 +25,13 @@ echo "All packages installed correctly"
 
 echo "Preparing ports to be open. By default 8181 = SLS HTTP, 8282 = SLS Server, 8383 = SRTLA, 22 = SSH"
 
+
 sudo ufw allow 8181/udp >/dev/null
 sudo ufw allow 8181/tcp >/dev/null
 sudo ufw allow 8282/udp >/dev/null
 sudo ufw allow 8282/tcp >/dev/null
+sudo ufw allow 8383/tcp >/dev/null
+sudo ufw allow 8383/udp >/dev/null
 sudo ufw allow 22/tcp >/dev/null
 sudo ufw allow 22/udp >/dev/null
 
@@ -37,7 +40,7 @@ echo "Enabling the firewall service"
 echo "y" | sudo ufw enable >/dev/null
 
 echo "Firewall enabled"
-echo "Downloading and installing SRT Server"
+echo "Downloading and installing SRT Server. This can take up to 5 minutes, don't touch your keyboard until it finishes."
 
 sudo git clone https://github.com/Haivision/srt.git -q 2>&1 >/dev/null
 cd srt
@@ -72,13 +75,57 @@ echo "Downloading sls.sh file from repo"
 cd ~
 curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >/dev/null
 sudo chmod +x sls.sh
+sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
 
+echo "Creating the SLS service"
 cd /etc/systemd/system
 sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service" >/dev/null
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/sls.sh|" sls.service
 
+echo "Enabling SLS service to start on boot"
+sudo systemctl daemon-reload
+sudo systemctl start sls.service
+sudo systemctl enable sls.service
+
+echo "SLS service enabled"
+
+echo "SRT+SLS relay server finished"
+
+echo "To connect to the server use $localip:8282 with streamid live/stream/broadcast"
+
+read -p "Press enter to continue installing the SRTLA Relay Server"
+
+echo "Installing SRTLA Relay Server"
+cd ~
+git clone https://github.com/Marlow925/srtla.git -q 2>&1 >/dev/null
+cd srtla/
+make -s > /dev/null 2>&1
+echo "SRTLA Relay Server installed"
+
+echo "Configuring SRTLA Relay Server service on startup"
+cd ~
+curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh" >/dev/null
+sudo chmod +x srtla.sh
+sudo sed -i "2s|.*|cd /home/$username/srtla && ./srtla_rec 8383 0.0.0.0 8282|" srtla.sh
+sudo chmod +x srtla.sh
+
+echo "Creating the SRTLA service"
+cd /etc/systemd/system
+sudo curl -s -H "Cache-Control: no-cache" -o "srtla.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.service" >/dev/null
+sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/srtla.sh|" srtla.service
+
+echo "Enabling SRTLA service to start on boot"
+
+sudo systemctl daemon-reload
+sudo systemctl start srtla.service
+sudo systemctl enable srtla.service
 
 
 
-echo "To connect to the server use $localip:8282"
+
+
+
+
+
+
 
