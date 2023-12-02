@@ -530,10 +530,36 @@ Let's perform something now:
 - If a pink screen comes, press Tab and Enter at the Ok button
 
 Now your machine is updated!
+
+Let's enable ssh incoming connections now:
+`sudo ufw allow ssh` and press enter
+`sudo ufw enable`
+This will open the port 22 and make us able to connect remotely to the machine.
   
+## Enable SSH access for your server/VM
 
+We will try to connect to our Ubuntu VM from another computer. This will help us to use more friendlier apps than the OS console o make us be able to copy and paste nicely. You can even access from your smartphone or tablet if you want.
+If you are using a cloud service for hosting your VM, they should have clear instructions on how to SSH.
 
-## enablessh
+We are going to use the latest Windows terminal that can be downloaded from [here](https://github.com/microsoft/terminal/releases) to connect to a Ubuntu VM on our same network.
+
+Lets say our VM is at 192.168.1.126 and the user for that VM is ubuntu.
+
+We will write on the terminal: 
+`ssh ubuntu@192.168.1.126`
+A message like this will appear:
+```
+The authenticity of host '192.168.1.126 (192.168.1.126)' can't be established.
+ECDSA key fingerprint is SHA256:sKJ0sHf73WjW5IBibJkMWKmu3Cve+UOfoIpmMJm+QeA.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+Write yes and press enter.
+
+You should be inside the VM now from Windows. Now you can follow the first part of the tutorial more easily than from the Ubuntu console directly.
+![image](https://github.com/escaparrac/IRL-relay-SRT-RMTP/assets/65442318/95fe82ef-53c2-4d25-981a-8b71336d2ae2)
+
+Note: this is not the safest way to do SSH to a machine, but since it's a VM inside your network, I won't make you generate certificates or edit linux files. If you want to read about that you can check [here](https://goteleport.com/blog/how-to-ssh-properly/)
+
 ## Configure a Dynamic DNS service with DuckDNS.org
 
 If you have Dynamic IP at home, having a dynamic DNS service will help you to not need to change your IP every now and then. Also, if you want to have a friendly domain name instead of your public IP wandering around, a Dynamic DNS service would be a good idea.
