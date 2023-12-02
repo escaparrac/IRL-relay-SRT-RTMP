@@ -21,7 +21,7 @@ sudo apt-get install libinput-dev make cmake tcl openssl zlib1g-dev gcc perl net
 
 echo "All packages installed correctly"
 
-echo "Preparing ports to be open. By default 8181 = SLS HTTP, 8282 = SLS Server, 8383 = SRTLA, 22 = SSH
+echo "Preparing ports to be open. By default 8181 = SLS HTTP, 8282 = SLS Server, 8383 = SRTLA, 22 = SSH"
 
 sudo ufw allow 8181/udp
 sudo ufw allow 8181/tcp
@@ -32,7 +32,7 @@ sudo ufw allow 22/udp
 
 echo "Enabling the firewall service"
 
-sudo ufw enable
+echo "y" | sudo ufw enable
 
 echo "Firewall enabled"
 echo "Downloading and installing SRT Server"
@@ -58,5 +58,4 @@ sudo mv sls.conf sls.bak
 
 echo "Downloading the sample sls.conf file from the repository"
 curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf"
-
-
+echo "sls.conf Downloaded"
