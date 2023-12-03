@@ -63,7 +63,7 @@ sudo make -j8 -s > /dev/null 2>&1
 sudo mv sls.conf sls.bak
 
 echo "Downloading the sample sls.conf file from the repository"
-sudo curl -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf"
+curl -s -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf"
 echo "sls.conf Downloaded"
 
 echo "Finishing SLS configuration"
@@ -74,7 +74,7 @@ echo "SLS correctly installed"
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
 cd ~
-sudo curl -s -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >curl_log.txt 2>&1
+curl -s -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >curl_log.txt 2>&1
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
 
@@ -104,7 +104,7 @@ echo "SRTLA Relay Server installed"
 echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
 cd ~
-sudo curl -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
+curl -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
 sudo chmod +x srtla.sh
 sudo sed -i "2s|.*|cd /home/$username/srtla|" srtla.sh
 sudo sed -i "3s|.*|./srtla_rec 8383 $localip 8282|" srtla.sh
