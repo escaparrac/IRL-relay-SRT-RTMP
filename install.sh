@@ -74,7 +74,7 @@ echo "SLS correctly installed"
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
 cd /home/$SUDO_USER
-curl -s -H "Cache-Control: no-cache"-o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >curl_log.txt 2>&1
+curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh"
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$SUDO_USER/srt-live-service/bin/|" sls.sh
 
