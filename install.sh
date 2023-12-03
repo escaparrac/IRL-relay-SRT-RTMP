@@ -76,7 +76,7 @@ echo "Downloading sls.sh file from repo"
 cd /home/$SUDO_USER
 curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh"
 sudo chmod +x sls.sh
-sudo sed -i "2s|.*|cd /home/$SUDO_USER/srt-live-service/bin/|" sls.sh
+sudo sed -i "2s|.*|cd /home/$SUDO_USER/srt-live-server/bin/|" sls.sh
 
 echo "Creating the SLS service"
 cd /etc/systemd/system
