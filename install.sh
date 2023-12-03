@@ -1,9 +1,8 @@
 # This script will install an SRT relay with SRTLA and NOALBS.
 
 #!/bin/bash
-username=$(whoami)
+
 localip=$(hostname -I | tr -d ' ')
-export username
 export localip
 
 # Main script logic comes here
