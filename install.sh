@@ -4,6 +4,7 @@
 username=$(whoami)
 localip=$(hostname -I)
 export username
+export localip
 
 # Main script logic comes here
 echo "Executing main script logic..."
