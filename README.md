@@ -600,7 +600,7 @@ First, we are going to create an account and a domain.
 - Sign in with your preferred method.
 - Add a domain (xxx.duckdns.org)
 - Click install select Linux and your domain at the bottom. *if you followed this guide, you should have an Ubuntu/Debian machine ready.
-- Follow the steps. if you dan't have cron installed, execute:
+- Follow the steps. if you don't have cron installed, execute:
 ```
 sudo apt -y install cron
 ```
@@ -609,5 +609,5 @@ sudo apt -y install cron
 Now your server IP can be reached by xxx.duckdns.org. That means all your relays can be accessed by something like xxx.duckdns.org:8282.
 
 ## openvpn
-## tailscale
 
+## tailscale
