@@ -2,7 +2,7 @@
 
 #!/bin/bash
 username=$(whoami)
-localip=$(hostname -I)
+localip=$(hostname -I | tr -d ' ')
 export username
 export localip
 
