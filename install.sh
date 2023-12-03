@@ -79,7 +79,7 @@ sudo sed -i "2s|.*|cd /home/$SUDO_USER/srt-live-server/bin/|" sls.sh
 
 echo "Creating the SLS service"
 cd /etc/systemd/system
-sudo curl -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service"
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service"
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$SUDO_USER/sls.sh|" sls.service
 
 echo "Enabling SLS service to start on boot"
@@ -101,7 +101,7 @@ echo "SRTLA Relay Server installed"
 echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
 cd /home/$SUDO_USER
-curl -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
+curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
 sudo chmod +x srtla.sh
 sudo sed -i "2s|.*|cd /home/$SUDO_USER/srtla|" srtla.sh
 sudo sed -i "3s|.*|./srtla_rec 8383 $localip 8282|" srtla.sh
@@ -109,7 +109,7 @@ sudo chmod +x srtla.sh
 
 echo "Creating the SRTLA service"
 cd /etc/systemd/system
-sudo curl -H "Cache-Control: no-cache" -o "srtla.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.service"
+sudo curl -s -H "Cache-Control: no-cache" -o "srtla.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.service"
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$SUDO_USER/srtla.sh|" srtla.service
 
 echo "Enabling SRTLA service to start on boot"
@@ -122,5 +122,6 @@ echo "Your SRT and SRTLA relays are working now."
 echo ""
 echo "To connect to the SRT server use $localip:8282 with streamid live/stream/broadcast"
 echo "To connect to the SRTLA server use $localip:8383 with streamid live/stream/broadcast"
+echo "The stats server is at http://$localip:8181/stats
 echo ""
 echo "If you find any problem during the installation, find me at https://github.com/escaparrac/ or X/Twitter: https://www.twitter.com/joaquinestevan"
