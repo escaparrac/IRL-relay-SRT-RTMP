@@ -91,8 +91,6 @@ echo "SLS service enabled"
 
 echo "SRT+SLS relay server finished"
 
-echo "To connect to the server use $localip:8282 with streamid live/stream/broadcast"
-
 echo "Installing SRTLA Relay Server"
 cd /home/$SUDO_USER
 git clone https://github.com/Marlow925/srtla.git -q 2>&1 >/dev/null
@@ -120,12 +118,9 @@ sudo systemctl daemon-reload
 sudo systemctl start srtla.service
 sudo systemctl enable srtla.service
 
-
-
-
-
-
-
-
-
-
+echo "Your SRT and SRTLA relays are working now."
+echo ""
+echo "To connect to the SRT server use $localip:8282 with streamid live/stream/broadcast"
+echo "To connect to the SRTLA server use $localip:8383 with streamid live/stream/broadcast"
+echo ""
+echo "If you find any problem during the installation, find me at https://github.com/escaparrac/ or X/Twitter: https://www.twitter.com/joaquinestevan"
