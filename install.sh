@@ -74,7 +74,7 @@ echo "SLS correctly installed"
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
 cd ~
-sudo curl -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh"
+sudo curl -s -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >curl_log.txt 2>&1
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
 
