@@ -73,7 +73,7 @@ echo "SLS correctly installed"
 
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
-cd ~
+cd /home/$username
 curl -s -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >curl_log.txt 2>&1
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
@@ -95,7 +95,7 @@ echo "SRT+SLS relay server finished"
 echo "To connect to the server use $localip:8282 with streamid live/stream/broadcast"
 
 echo "Installing SRTLA Relay Server"
-cd ~
+cd /home/$username
 git clone https://github.com/Marlow925/srtla.git -q 2>&1 >/dev/null
 cd srtla/
 make -s > /dev/null 2>&1
@@ -103,7 +103,7 @@ echo "SRTLA Relay Server installed"
 
 echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
-cd ~
+cd /home/$username
 curl -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
 sudo chmod +x srtla.sh
 sudo sed -i "2s|.*|cd /home/$username/srtla|" srtla.sh
