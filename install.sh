@@ -119,9 +119,9 @@ sudo systemctl enable srtla.service
 
 echo "Your SRT and SRTLA relays are working now."
 echo ""
-echo "To connect to the SRT server use $localip:8282 with streamid live/stream/broadcast"
+echo "To send video to the SRT server use $localip:8282 with streamid live/stream/broadcast. $publicip:8282 if you are outside the networks (remember to open ports on your router)"
 echo "To get your SRT video source at OBS use srt://$localip:8282/play/stream/broadcast"
-echo "To connect to the SRTLA server from Belabox use $localip:8383 with streamid live/stream/broadcast"
+echo "To connect to the SRTLA server from Belabox use $publicip:8383 with streamid live/stream/broadcast (remember to open ports on your router)"
 echo "The stats server is at http://$localip:8181/stats"
 echo ""
 echo "If you find any problem during the installation, find me at https://github.com/escaparrac/ or X/Twitter: https://www.twitter.com/joaquinestevan"
