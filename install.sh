@@ -3,7 +3,7 @@
 #!/bin/bash
 
 localip=$(hostname -I | tr -d ' ')
-export localip
+publicip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 echo "Executing Escaparrac's SRT/SRTLA relay server installer..."
 
@@ -120,7 +120,8 @@ sudo systemctl enable srtla.service
 echo "Your SRT and SRTLA relays are working now."
 echo ""
 echo "To connect to the SRT server use $localip:8282 with streamid live/stream/broadcast"
-echo "To connect to the SRTLA server use $localip:8383 with streamid live/stream/broadcast"
+echo "To get your SRT video source at OBS use srt://$localip:8282/play/stream/broadcast"
+echo "To connect to the SRTLA server from Belabox use $localip:8383 with streamid live/stream/broadcast"
 echo "The stats server is at http://$localip:8181/stats"
 echo ""
 echo "If you find any problem during the installation, find me at https://github.com/escaparrac/ or X/Twitter: https://www.twitter.com/joaquinestevan"
