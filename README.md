@@ -12,9 +12,9 @@ The Ubuntu version used in this guide is the [22.04](https://releases.ubuntu.com
 
 You can use any virtualization app on Windows like VirtualBox, get a cloud service like Linode or Amazon EC2, install it in your own baremetal server, Raspberry Pi or using virtualization environments like Proxmox. In the future I would like to create a dockerized version of this project so it's super easy to run and deploy.
 
-This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correcteD some commands and made it friendlier for non-Linux users.
+This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, corrected some commands and made it friendlier for non-Linux users.
 
-Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
+Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check [this guide](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#install-an-ubuntu-virtual-machine-in-windows) on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
 Also, the username for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
 
 # Table of contents
