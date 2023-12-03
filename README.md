@@ -15,7 +15,7 @@ You can use any virtualization app on Windows like VirtualBox, get a cloud servi
 This guide was inspired by this video from [Codexual](https://www.youtube.com/watch?v=YhvRXWzRPm4), but I tried to make this simpler, correcteD some commands and made it friendlier for non-Linux users.
 
 Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
-Also, the username for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
+Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
 
 # Table of contents
 
