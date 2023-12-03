@@ -17,6 +17,10 @@ This guide was inspired by this video from [Codexual](https://www.youtube.com/wa
 Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
 Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
 
+> [!BETA]
+> You can install the SRT + SRTLA service  with one command. You need to be logged in as a sudo user, not root:
+> `sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh`
+
 # Table of contents
 
 1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP#srt-with-stats-monitor-sls)
