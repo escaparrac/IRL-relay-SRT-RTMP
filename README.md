@@ -18,8 +18,9 @@ Before starting, this guide assumes that you already have an Ubuntu/Debian syste
 Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
 
 > [!IMPORTANT]
-> You can install the SRT + SRTLA service with one command. You need to be logged in as a sudo user, not root:
+> You can install the SRT + SRTLA service with one command only. You need to be logged in as a sudo user, not root:
 > `sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh`
+> You can still continue installing it command by command if you want more flexibility.
 
 # Table of contents
 
@@ -33,6 +34,7 @@ Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change i
     3. [Configure a Dynamic DNS service with Duckdns](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#configure-a-dynamic-dns-service-with-duckdnsorg)
 
 # SRT with stats monitor (SLS)
+
 ## Perform update and upgrade
 ```
 sudo apt update -y && sudo apt full-upgrade -y
