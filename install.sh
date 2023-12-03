@@ -73,15 +73,15 @@ echo "SLS correctly installed"
 
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
-cd /home/$username
+cd /home/$SUDO_USER
 curl -s -H "Cache-Control: no-cache"-o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh" >curl_log.txt 2>&1
 sudo chmod +x sls.sh
-sudo sed -i "2s|.*|cd /home/$username/srt-live-service/bin/|" sls.sh
+sudo sed -i "2s|.*|cd /home/$SUDO_USER/srt-live-service/bin/|" sls.sh
 
 echo "Creating the SLS service"
 cd /etc/systemd/system
 sudo curl -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service"
-sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/sls.sh|" sls.service
+sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$SUDO_USER/sls.sh|" sls.service
 
 echo "Enabling SLS service to start on boot"
 sudo systemctl daemon-reload
@@ -95,7 +95,7 @@ echo "SRT+SLS relay server finished"
 echo "To connect to the server use $localip:8282 with streamid live/stream/broadcast"
 
 echo "Installing SRTLA Relay Server"
-cd /home/$username
+cd /home/$SUDO_USER
 git clone https://github.com/Marlow925/srtla.git -q 2>&1 >/dev/null
 cd srtla/
 make -s > /dev/null 2>&1
@@ -103,17 +103,17 @@ echo "SRTLA Relay Server installed"
 
 echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
-cd /home/$username
+cd /home/$SUDO_USER
 curl -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
 sudo chmod +x srtla.sh
-sudo sed -i "2s|.*|cd /home/$username/srtla|" srtla.sh
+sudo sed -i "2s|.*|cd /home/$SUDO_USER/srtla|" srtla.sh
 sudo sed -i "3s|.*|./srtla_rec 8383 $localip 8282|" srtla.sh
 sudo chmod +x srtla.sh
 
 echo "Creating the SRTLA service"
 cd /etc/systemd/system
 sudo curl -H "Cache-Control: no-cache" -o "srtla.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.service"
-sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$username/srtla.sh|" srtla.service
+sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$SUDO_USER/srtla.sh|" srtla.service
 
 echo "Enabling SRTLA service to start on boot"
 
