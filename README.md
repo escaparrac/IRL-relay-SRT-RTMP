@@ -19,19 +19,19 @@ Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change i
 
 > [!NOTE]
 > You can install the SRT + SRTLA service with one command only. You need to be logged in as a sudo user, not root:
-> `sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh`
+> `sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh`
 > You can still continue installing it command by command if you want more flexibility.
 
 # Table of contents
 
-1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP#srt-with-stats-monitor-sls)
-2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/#rtmp-with-stats-monitor-nginx)
-3. [Create a SRTLA server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#launch-srtla-relay-server-based-on-dukins-guide)
-4. [Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#install-noalbs-on-our-server)
+1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP#srt-with-stats-monitor-sls)
+2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP/#rtmp-with-stats-monitor-nginx)
+3. [Create a SRTLA server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#launch-srtla-relay-server-based-on-dukins-guide)
+4. [Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#install-noalbs-on-our-server)
 5. Usefull resources
-    1. [Install an Ubuntu VM on Windows to host our server](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#install-an-ubuntu-virtual-machine-in-windows)
-    2. [Enable SSH to access our server console from Windows](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#enable-ssh-access-for-your-servervm)
-    3. [Configure a Dynamic DNS service with Duckdns](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#configure-a-dynamic-dns-service-with-duckdnsorg)
+    1. [Install an Ubuntu VM on Windows to host our server](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#install-an-ubuntu-virtual-machine-in-windows)
+    2. [Enable SSH to access our server console from Windows](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#enable-ssh-access-for-your-servervm)
+    3. [Configure a Dynamic DNS service with Duckdns](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#configure-a-dynamic-dns-service-with-duckdnsorg)
 
 # SRT with stats monitor (SLS)
 
@@ -148,7 +148,7 @@ If the configuration is done right, Larix should stay connected, no errors will 
 
 To test it in OBS or similar apps, you can add a VLC or video source with the next IP: srt://0.0.0.0:8282/play/stream/broadcast (0.0.0.0 is your server ip)
 
-![image](https://github.com/escaparrac/IRL-relay-SRT-RMTP/assets/65442318/0fd4a2e7-be76-4c5c-a06f-d9e0239b1b35)
+![image](https://github.com/escaparrac/IRL-relay-SRT-RTMP/assets/65442318/0fd4a2e7-be76-4c5c-a06f-d9e0239b1b35)
 
 If everything shows correctly, you can close the server doing CTRL + C in the open console.
 
@@ -193,7 +193,7 @@ sudo systemctl status sls.service
 sudo systemctl enable sls.service
 ```
 
-We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#noalbs) to enable the automatic scene switching.
+We are done with the SRT server. Now, you can configure the [NOALBS Service](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#noalbs) to enable the automatic scene switching.
 
 ## Launch SRTLA Relay Server (based on [dukins guide](https://github.com/dukins/irl-streaming-gopro-belabox-complete-guide/blob/main/README.md))
 
@@ -517,7 +517,7 @@ Now the VM will power up, and you will be welcomed to the Ubuntu Server Installe
     - username: ubuntu (you can choose whatever you want, but the tutorial is made with ubuntu user)
     - fill the both password fields and select Done
 - On upgrade to ubuntu pro press Continue
-- Press space to install OpenSSH server and select Done (we will configure this later [here](https://github.com/escaparrac/IRL-relay-SRT-RMTP/tree/main#enable-ssh-access-for-your-servervm)
+- Press space to install OpenSSH server and select Done (we will configure this later [here](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#enable-ssh-access-for-your-servervm)
 - Press Tab and Done
 - Wait for the install to end
 - Scroll to Reboot now and press Enter
@@ -584,7 +584,7 @@ Write yes and press enter.
 
 You should now be inside the VM from Windows. Now you can follow the first part of the tutorial more easily than from the Ubuntu console directly.
 
-![image](https://github.com/escaparrac/IRL-relay-SRT-RMTP/assets/65442318/95fe82ef-53c2-4d25-981a-8b71336d2ae2)
+![image](https://github.com/escaparrac/IRL-relay-SRT-RTMP/assets/65442318/95fe82ef-53c2-4d25-981a-8b71336d2ae2)
 
 Note: this is not the safest way to do SSH to a machine, but since it's a VM inside your network, I won't make you generate certificates or edit linux files. If you want to read about that you can check [here](https://goteleport.com/blog/how-to-ssh-properly/)
 
