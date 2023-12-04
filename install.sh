@@ -61,7 +61,7 @@ sudo make -j8 -s > /dev/null 2>&1
 sudo mv sls.conf sls.bak
 
 echo "Downloading the sample sls.conf file from the repository"
-curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.conf"
+curl -s -H "Cache-Control: no-cache" -o "sls.conf" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/sls.conf"
 echo "sls.conf Downloaded"
 
 echo "Finishing SLS configuration"
@@ -72,13 +72,13 @@ echo "SLS correctly installed"
 echo "Creating startup scripts and services"
 echo "Downloading sls.sh file from repo"
 cd /home/$SUDO_USER
-curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.sh"
+curl -s -H "Cache-Control: no-cache" -o "sls.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/sls.sh"
 sudo chmod +x sls.sh
 sudo sed -i "2s|.*|cd /home/$SUDO_USER/srt-live-server/bin/|" sls.sh
 
 echo "Creating the SLS service"
 cd /etc/systemd/system
-sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/sls.service"
+sudo curl -s -H "Cache-Control: no-cache" -o "sls.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/sls.service"
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$SUDO_USER/sls.sh|" sls.service
 
 echo "Enabling SLS service to start on boot"
@@ -100,7 +100,7 @@ echo "SRTLA Relay Server installed"
 echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
 cd /home/$SUDO_USER
-curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.sh"
+curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/srtla.sh"
 sudo chmod +x srtla.sh
 sudo sed -i "2s|.*|cd /home/$SUDO_USER/srtla|" srtla.sh
 sudo sed -i "3s|.*|./srtla_rec 8383 $localip 8282|" srtla.sh
@@ -108,7 +108,7 @@ sudo chmod +x srtla.sh
 
 echo "Creating the SRTLA service"
 cd /etc/systemd/system
-sudo curl -s -H "Cache-Control: no-cache" -o "srtla.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RMTP/main/srtla.service"
+sudo curl -s -H "Cache-Control: no-cache" -o "srtla.service" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/srtla.service"
 sudo sed -i "5s|.*|ExecStart=/bin/bash /home/$SUDO_USER/srtla.sh|" srtla.service
 
 echo "Enabling SRTLA service to start on boot"
