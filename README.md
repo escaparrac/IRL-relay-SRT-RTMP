@@ -1,4 +1,4 @@
-# IRL-relay-SRT-RTMP
+# IRL Relay server SRT + SRTLA + RTMP + NOALBS and others.
 
 This repo is a step by step guide on how to create a stream relay setup for IRL in Debian/Ubuntu. 
 
