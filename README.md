@@ -25,7 +25,7 @@ Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change i
 # Table of contents
 
 1. [Create a SRT server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP#srt-with-stats-monitor-sls)
-2. [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP/#rtmp-with-stats-monitor-nginx)
+2. WIP [Create a RTMP server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP/#rtmp-with-stats-monitor-nginx)
 3. [Create a SRTLA server with stats monitor](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#launch-srtla-relay-server-based-on-dukins-guide)
 4. [Install NOALBS on our servers to handle scene-switching in OBS using the current bitrate](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#install-noalbs-on-our-server)
 5. Usefull resources
