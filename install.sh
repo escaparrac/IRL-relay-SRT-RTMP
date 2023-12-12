@@ -12,10 +12,10 @@ echo "Checking what type of user you are"
 if [ -n "$customusername" ]; then
     username="$customusername"
     echo "Username changed to $customusername"
-elif [ "$EUID" -eq 0 ] && [ -n "$SUDO_USER" ]; then
+elif [ "$((EUID))" -eq 0 ] && [ -n "$SUDO_USER" ]; then
     username="$SUDO_USER"
     echo "You are root. Username is now set to: $username"
-elif [ "$EUID" -eq 0 ]; then
+elif [ "$((EUID))" -eq 0 ] ; then
     username="root"
     echo "You are root but no SUDO_USER assigned. Username is now set to: $username"
 else
