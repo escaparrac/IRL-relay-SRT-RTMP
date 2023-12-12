@@ -9,7 +9,6 @@ sudo rm -rf srtla && echo "srtla removed successfully" || echo "srtla not remove
 read -p "Do you want to remove the install.sh file? (Type 'yes' and Enter to remove, or press Enter to exit): " answer
 
 if [ "$answer" = "yes" ]; then
-    cd 
     sudo rm -rf install.sh
     echo "install.sh file removed."
 else
