@@ -19,3 +19,12 @@ sudo rm -rf srtla.service && echo "srtla.service removed successfully" || echo "
 
 
 echo "SRT + SRTLA Relay Server files removed succesfully"
+
+read -p "Do you want to remove the install.sh file? (Type 'yes' and Enter to remove, or press Enter to exit): " answer
+
+if [ "$answer" = "yes" ]; then
+    sudo rm -rf install.sh
+    echo "install.sh file removed."
+else
+    echo "Exiting without removing the install.sh file."
+fi

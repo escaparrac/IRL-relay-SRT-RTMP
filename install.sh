@@ -2,6 +2,8 @@
 
 #!/bin/bash
 
+echo "Executing Escaparrac's SRT/SRTLA relay server installer..."
+
 localip=$(hostname -I | tr -d ' ') # If you have several network devices, IPv6 or probems with your router, you can write your local IP after the ""=" like: localip="0.0.0.0"
 publicip=$(dig +short myip.opendns.com @resolver1.opendns.com) # Same as before, you can specify your public IP here (or your hostname if there is one). This won't affect the script usage.
 username=$USER # If you want to use a custom user instead of the default user, please fill the next variable with your preferred username.
@@ -14,16 +16,15 @@ if [ -n "$customusername" ]; then
     echo "Username changed to $customusername"
 elif [ "$((EUID))" -eq 0 ] && [ -n "$SUDO_USER" ]; then
     username="$SUDO_USER"
-    echo "You are root. Username is now set to: $username"
+    echo "You are running the script as sudo. Username is now set to: $username"
 elif [ "$((EUID))" -eq 0 ] ; then
     username="root"
-    echo "You are root but no SUDO_USER assigned. Username is now set to: $username"
+    echo "You are root. Username is now set to: $username"
 else
     username="$USER"
     echo "Username is now set to: $username"
 fi
 
-echo "Executing Escaparrac's SRT/SRTLA relay server installer..."
 
 echo "Updating and upgrading the OS"
 
