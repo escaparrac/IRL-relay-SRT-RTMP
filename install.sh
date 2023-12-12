@@ -56,7 +56,7 @@ echo "Enabling the firewall service"
 echo "y" | sudo ufw enable >/dev/null
 
 echo "Firewall enabled"
-echo "Downloading and installing SRT Server. This can take up to 5 minutes, don't touch your keyboard until it finishes."
+echo "Downloading and installing SRT Server. This can take up to 5 minutes, wait until it finishes."
 
 cd /home/$username
 sudo git clone https://github.com/Haivision/srt.git -q 2>&1 >/dev/null
@@ -68,7 +68,7 @@ sudo git checkout v1.5.3 > /dev/null 2>&1
 sudo ./configure > /dev/null 2>&1
 sudo make -j8 -s > /dev/null 2>&1
 sudo make install -s > /dev/null 2>&1
-if [[ -e /usr/local/bin/srt-file-transmit ]]; then
+if [ -e /usr/local/bin/srt-file-transmit ]; then
     echo "Success: SRT v1.5.3 installed."
 else
     echo "Error: SRT v1.5.3 could not be installed. Stopping the script."
