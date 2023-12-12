@@ -12,7 +12,7 @@ if [ "$answer" = "yes" ]; then
     sudo rm -rf install.sh
     echo "install.sh file removed."
 else
-    echo "Exiting without removing the install.sh file."
+    echo "Continuing without removing the install.sh file."
 fi
 
 cd /etc/systemd/system
