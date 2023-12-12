@@ -142,4 +142,4 @@ echo "To get your SRT video source at OBS use srt://$localip:8282/play/stream/br
 echo "To connect to the SRTLA server from Belabox use $publicip:8383 with streamid live/stream/broadcast (remember to open ports on your router)"
 echo "The stats server is at http://$localip:8181/stats"
 echo ""
-echo "If you find any problem during the installation, find me at https://github.com/escaparrac/ or X/Twitter: https://www.twitter.com/joaquinestevan"
+echo "If you find any problems during the installation, find me at https://github.com/escaparrac/ or X/Twitter: https://www.twitter.com/joaquinestevan"
