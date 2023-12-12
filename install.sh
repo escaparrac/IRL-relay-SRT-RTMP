@@ -68,7 +68,12 @@ sudo git checkout v1.5.3 > /dev/null 2>&1
 sudo ./configure > /dev/null 2>&1
 sudo make -j8 -s > /dev/null 2>&1
 sudo make install -s > /dev/null 2>&1
-echo "SRT v1.5.3 installed"
+if [[ -e /usr/local/bin/srt-file-transmit ]]; then
+    echo "Success: SRT v1.5.3 installed."
+else
+    echo "Error: SRT v1.5.3 could not be installed. Stopping the script."
+    exit 1  # Exit with an error status
+fi
 cd ../
 
 echo "SRT Server correctly installed"
