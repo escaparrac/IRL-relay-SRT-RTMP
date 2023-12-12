@@ -63,10 +63,12 @@ sudo git clone https://github.com/Haivision/srt.git -q 2>&1 >/dev/null
 cd srt
 sudo ./configure > /dev/null 2>&1
 sudo make -s > /dev/null 2>&1
+echo "SRT Downloaded and compiled"
 sudo git checkout v1.5.3 > /dev/null 2>&1
 sudo ./configure > /dev/null 2>&1
 sudo make -j8 -s > /dev/null 2>&1
 sudo make install -s > /dev/null 2>&1
+echo "SRT v1.5.3 installed"
 cd ../
 
 echo "SRT Server correctly installed"
