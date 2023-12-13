@@ -9,7 +9,7 @@ publicip=$(dig +short myip.opendns.com @resolver1.opendns.com) # Same as before,
 username=$USER # If you want to use a custom user instead of the default user, please fill the next variable with your preferred username.
 customusername=""
 
-echo "Checking what type of user you are"
+echo "Checking what type of user you are:"
 
 if [ -n "$customusername" ]; then
     username="$customusername"
