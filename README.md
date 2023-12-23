@@ -17,10 +17,6 @@ This guide was inspired by this video from [Codexual](https://www.youtube.com/wa
 Before starting, this guide assumes that you already have an Ubuntu/Debian system ready. If you don't have it, check this guide on how to create a VM in Windows. All the configurations will be done with the console, no graphic interface will be needed.
 Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change it before executing the commands. Execute the commands line by line for better results.
 
-> [!NOTE]
-> You can install the SRT + SRTLA service with one command only. You need to be logged in as a sudo user, not root:
-> `sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh`
-> You can still continue installing it command by command if you want more flexibility.
 
 # Table of contents
 
@@ -34,6 +30,13 @@ Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change i
     3. [Configure a Dynamic DNS service with Duckdns](https://github.com/escaparrac/IRL-relay-SRT-RTMP/tree/main#configure-a-dynamic-dns-service-with-duckdnsorg)
 
 # SRT with stats monitor (SLS)
+
+> [!NOTE]
+> You can install the SRT + SRTLA service with single command. You need to be logged in as a sudo user, not root:
+> `sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh`
+> You can still continue installing it command by command with the guide below if you want more flexibility.
+> If you want to remove all the files installed by the script, you can use the next command:
+> `sudo curl -s -H "Cache-Control: no-cache" -o "remove.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/remove.sh" && sudo chmod +x remove.sh && sudo ./remove.sh`
 
 ## Perform update and upgrade
 ```
