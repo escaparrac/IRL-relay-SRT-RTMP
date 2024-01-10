@@ -1,6 +1,6 @@
 # IRL Relay server SRT + SRTLA + RTMP + NOALBS and others.
 
-If you wish to buy me a coffee, you can do it [here](https://paypal.me/joaquinestevan)
+If you wish to buy me a coffee, you can do it [here](https://paypal.me/joaquinestevan) ☕
 
 This repo is a step by step guide on how to create a stream relay setup for IRL in Debian/Ubuntu. 
 
