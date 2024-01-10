@@ -40,6 +40,7 @@ Also, the -sudo- user for this tutorial will be "ubuntu", so be wary to change i
 > If you want to remove all the files installed by the script, you can use the next command:
 > `sudo curl -s -H "Cache-Control: no-cache" -o "remove.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/remove.sh" && sudo chmod +x remove.sh && sudo ./remove.sh`
 
+## Step by Step Guide
 ## Perform update and upgrade
 ```
 sudo apt update -y && sudo apt full-upgrade -y
