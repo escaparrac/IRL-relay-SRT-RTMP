@@ -17,7 +17,7 @@ RUN apt update \
 && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 # Create ubuntu user
-RUN useradd -m ubuntu && echo "ubuntu:ubuntu" | chpasswd && adduser docker sudo
+RUN useradd -m ubuntu && echo "ubuntu:ubuntu" | chpasswd && adduser ubuntu sudo
 USER ubuntu
 CMD /bin/bash
 
