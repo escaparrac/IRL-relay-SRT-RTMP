@@ -16,6 +16,11 @@ RUN apt update \
 && apt install debconf-utils -y \
 && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
+# Create ubuntu user
+RUN useradd -m ubuntu && echo "ubuntu:ubuntu" | chpasswd && adduser docker sudo
+USER ubuntu
+CMD /bin/bash
+
 # Downloaded latest release of the script and excecute it
 RUN sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh
 
