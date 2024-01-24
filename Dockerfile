@@ -18,6 +18,8 @@ RUN apt update \
 
 # Create ubuntu user
 RUN useradd -m ubuntu && echo "ubuntu:ubuntu" | chpasswd && adduser ubuntu sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
+/etc/sudoers
 USER ubuntu
 
 # Downloaded latest release of the script and excecute it
