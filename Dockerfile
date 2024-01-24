@@ -12,7 +12,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Update Ubuntu Software repository
 RUN apt update
 RUN apt upgrade -y
-RUN apt install sudo curl
+RUN apt install sudo
+RUN apt install curl
 
 # Downloaded latest release of the script and excecute it
 RUN sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh
