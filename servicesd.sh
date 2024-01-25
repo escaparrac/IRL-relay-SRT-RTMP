@@ -1,6 +1,8 @@
 #!/bin/bash
-cd /home/ubuntu/
-nohup ./sls.sh & 
-disown %1
-# nohup ./srtla.sh &
-while true; do sleep 1; done
+
+cd /home/ubuntu/srt-live-server/bin/
+./sls -c ../sls.conf &
+cd /home/ubuntu/srtla
+./srtla_rec 8383 0.0.0.0 8282 &
+wait -n
+exit $?
