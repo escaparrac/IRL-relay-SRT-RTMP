@@ -13,7 +13,6 @@ RUN apt update \
 && apt install sudo -y \
 && apt install curl -y \
 && apt install dnsutils -y \
-&& apt install ufw -y \
 && apt install apt-utils -y \
 && apt install dialog -y \
 && apt install debconf-utils -y \
@@ -40,5 +39,7 @@ EXPOSE 8383/udp
 # Run Scripts
 ## RUN sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh && sudo ./servicesd.sh
 
-RUN sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh
+RUN cd /home/ubuntu/ \
+&& sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh
+ENTRYPOINT ["/bin/sh"]
 CMD ./servicesd.sh
