@@ -41,5 +41,5 @@ EXPOSE 8383/udp
 
 RUN cd /home/ubuntu/ \
 && sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh
-ENTRYPOINT ["/bin/sh"]
+
 CMD ./servicesd.sh
