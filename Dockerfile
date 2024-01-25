@@ -41,7 +41,8 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
 USER ubuntu
 
 # Downloaded latest release of the script and excecute it
-RUN sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh
+RUN cd /home/ubuntu \
+sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh
 
 # Expose Ports
 EXPOSE 8181
