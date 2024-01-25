@@ -24,7 +24,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
 /etc/sudoers
 USER ubuntu
 
-# Download the latest release of the script and execute it
+# Download the latest release of the Docker script and execute it
 RUN cd /home/ubuntu/ \
 && sudo curl -s -H "Cache-Control: no-cache" -o "docker.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker.sh" && sudo chmod +x docker.sh && sudo ./docker.sh
 
