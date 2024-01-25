@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /home/ubuntu/
-./sls.sh
-./srtla.sh
+./sls.sh &
+./srtla.sh &
