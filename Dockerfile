@@ -27,10 +27,15 @@ USER ubuntu
 
 # Download the latest release of the script and execute it
 RUN cd /home/ubuntu/ \
-&& sudo curl -s -H "Cache-Control: no-cache" -o "install.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/install.sh" && sudo chmod +x install.sh && sudo ./install.sh
+&& sudo curl -s -H "Cache-Control: no-cache" -o "docker.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker.sh" && sudo chmod +x docker.sh && sudo ./docker.sh
 
 # Expose Ports
-EXPOSE 8181
-EXPOSE 8282
-EXPOSE 8383
-EXPOSE 22
+EXPOSE 8181/tcp
+EXPOSE 8181/udp
+EXPOSE 8282/tcp
+EXPOSE 8282/udp
+EXPOSE 8383/tcp
+EXPOSE 8383/udp
+
+# Run Scripts
+RUN sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh && sudo ./servicesd.sh
