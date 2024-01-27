@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Start the first program in the background
 /root/srt-live-server/bin/sls -c /root/srt-live-server/sls.conf &
