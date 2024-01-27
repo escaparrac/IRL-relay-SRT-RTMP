@@ -61,5 +61,7 @@ RUN cd /root \
 RUN cd /root \
 && sudo curl -s -H "Cache-Control: no-cache" -o "servicesa.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesa.sh" && sudo chmod +x servicesa.sh
 
+WORKDIR /root
+
 # Script to execute on boot
-CMD ./root/servicesa.sh
+CMD ./servicesa.sh
