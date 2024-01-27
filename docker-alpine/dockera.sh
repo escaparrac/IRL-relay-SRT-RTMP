@@ -13,20 +13,7 @@ echo "Downloading and installing SRT Server. This can take up to 5 minutes, wait
 
 sudo git clone https://github.com/Haivision/srt.git -q 2>&1 >/dev/null
 cd srt
-sudo ./configure > /dev/null 2>&1
-sudo make -s > /dev/null 2>&1
-echo "SRT Downloaded and compiled"
-sudo git checkout v1.5.3 > /dev/null 2>&1
-sudo ./configure > /dev/null 2>&1
-sudo make -j8 -s > /dev/null 2>&1
-sudo make install -s > /dev/null 2>&1
-if [ -e /usr/local/bin/srt-file-transmit ]; then
-    echo "Success: SRT v1.5.3 installed."
-else
-    echo "Error: SRT v1.5.3 could not be installed. Stopping the script."
-    exit 1  # Exit with an error status
-fi
-cd ../
+sudo ./configure && make && make install > /dev/null 2>&1
 
 echo "SRT Server correctly installed"
 
@@ -34,6 +21,7 @@ echo "Downloading and installing SLS"
 
 sudo git clone https://gitlab.com/mattwb65/srt-live-server.git -q > /dev/null 2>&1
 cd srt-live-server
+echo "#include <ctime>"|cat - slscore/common.cpp > /tmp/out && mv /tmp/out slscore/common.cpp
 sudo make -j8 -s > /dev/null 2>&1
 sudo mv sls.conf sls.bak
 
@@ -66,7 +54,6 @@ echo "Configuring SRTLA Relay Server service on startup"
 echo "Downloading srtla.sh file from repo"
 cd /root
 sudo curl -s -H "Cache-Control: no-cache" -o "srtla.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/srtla.sh"
-sudo chmod +x srtla.sh
 sudo sed -i "2s|.*|cd /root/srtla|" srtla.sh
 sudo sed -i "3s|.*|./srtla_rec 8383 $localip 8282|" srtla.sh
 sudo chmod +x srtla.sh
