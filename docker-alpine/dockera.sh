@@ -4,7 +4,8 @@
 
 echo "Executing Escaparrac's SRT/SRTLA relay server installer..."
 
-localip=$(hostname -I | tr -d ' ') # If you have several network devices, IPv6 or probems with your router, you can write your local IP after the ""=" like: localip="0.0.0.0"
+localip=192.168.1.154
+# $(hostname -I | tr -d ' ') # If you have several network devices, IPv6 or probems with your router, you can write your local IP after the ""=" like: localip="0.0.0.0"
 publicip=$(dig +short myip.opendns.com @resolver1.opendns.com) # Same as before, you can specify your public IP here (or your hostname if there is one). This won't affect the script usage.
 username=$USER # If you want to use a custom user instead of the default user, please fill the next variable with your preferred username.
 customusername=""
