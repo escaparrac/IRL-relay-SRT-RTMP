@@ -26,20 +26,6 @@ else
 fi
 
 
-echo "Updating and upgrading the OS"
-
-sudo apt-get update -y -q >/dev/null
-sudo apt-get upgrade -y -q >/dev/null
-sudo dpkg --configure -a >/dev/null
-
-echo "System updated and upgraded"
-
-echo "Installing all the required packages"
-
-sudo apt-get install libinput-dev make cmake tcl openssl zlib1g-dev gcc perl net-tools nano ssh git zip unzip tclsh pkg-config libssl-dev build-essential iputils-ping -y -q >/dev/null
-
-echo "All packages installed correctly"
-
 echo "Downloading and installing SRT Server. This can take up to 5 minutes, wait until it finishes."
 
 cd /home/$username

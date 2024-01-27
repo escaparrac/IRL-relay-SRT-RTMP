@@ -61,7 +61,7 @@ USER ubuntu
 
 # Download latest version of Docker script
 RUN cd /home/ubuntu/ \
-&& sudo curl -s -H "Cache-Control: no-cache" -o "docker.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker.sh" && sudo chmod +x docker.sh && sudo ./docker.sh
+&& sudo curl -s -H "Cache-Control: no-cache" -o "dockera.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/dockera.sh" && sudo chmod +x dockera.sh && sudo ./dockera.sh
 
 # Download latest version of the services
 RUN cd /home/ubuntu/ \
