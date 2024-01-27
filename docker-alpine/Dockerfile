@@ -12,6 +12,7 @@ RUN apk update && \
         bash \
         sudo \
         curl \
+        dpkg  \
         gcc \
         git \
         libc-dev \
