@@ -52,20 +52,13 @@ RUN apk update && \
         iputils \
         bind-tools
 
-# Create a non-root user
-RUN adduser -D -u 1000 ubuntu && echo "ubuntu:ubuntu" | chpasswd
-# Grant sudo privileges (if sudo is installed)
-RUN echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-# Switch to the ubuntu user
-USER ubuntu
-
 # Download latest version of Docker script
-RUN cd /home/ubuntu/ \
-&& sudo curl -s -H "Cache-Control: no-cache" -o "dockera.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/dockera.sh" && sudo chmod +x dockera.sh && sudo ./dockera.sh
+RUN cd /root/ \
+&& sudo curl -s -H "Cache-Control: no-cache" -o "dockera.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker-alpine/dockera.sh" && sudo chmod +x dockera.sh && sudo ./dockera.sh
 
 # Download latest version of the services
-RUN cd /home/ubuntu/ \
+RUN cd /root/ \
 && sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh
 
 # Script to execute on boot
-CMD ./home/ubuntu/servicesd.sh
+CMD ./root/servicesd.sh
