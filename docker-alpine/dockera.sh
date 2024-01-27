@@ -11,15 +11,15 @@ publicip=$(dig +short myip.opendns.com @resolver1.opendns.com) # Same as before,
 
 echo "Downloading and installing SRT Server. This can take up to 5 minutes, wait until it finishes."
 
-sudo git clone https://github.com/Haivision/srt.git
+sudo git clone https://github.com/Haivision/srt.git -q 2>&1 >/dev/null
 cd srt
-sudo ./configure
-sudo make -s
+sudo ./configure > /dev/null 2>&1
+sudo make -s > /dev/null 2>&1
 echo "SRT Downloaded and compiled"
-sudo git checkout v1.5.3
-sudo ./configure
-sudo make -j8 -s
-sudo make install -s
+sudo git checkout v1.5.3 > /dev/null 2>&1
+sudo ./configure > /dev/null 2>&1
+sudo make -j8 -s > /dev/null 2>&1
+sudo make install -s > /dev/null 2>&1
 if [ -e /usr/local/bin/srt-file-transmit ]; then
     echo "Success: SRT v1.5.3 installed."
 else
@@ -32,9 +32,9 @@ echo "SRT Server correctly installed"
 
 echo "Downloading and installing SLS"
 
-sudo git clone https://gitlab.com/mattwb65/srt-live-server.git -q
+sudo git clone https://gitlab.com/mattwb65/srt-live-server.git -q > /dev/null 2>&1
 cd srt-live-server
-sudo make -j8 -s
+sudo make -j8 -s > /dev/null 2>&1
 sudo mv sls.conf sls.bak
 
 echo "Downloading the sample sls.conf file from the repository"
@@ -59,7 +59,7 @@ echo "Installing SRTLA Relay Server"
 cd /root
 git clone https://github.com/Marlow925/srtla.git -q 2>&1 >/dev/null
 cd srtla/
-make -s
+make -s > /dev/null 2>&1
 echo "SRTLA Relay Server installed"
 
 echo "Configuring SRTLA Relay Server service on startup"
