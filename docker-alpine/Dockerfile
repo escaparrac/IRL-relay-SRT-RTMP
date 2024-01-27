@@ -18,6 +18,7 @@ RUN apk update && \
         libc-dev \
         libgcc \
         libstdc++ \
+        cmake \
         make \
         openssl-dev \
         perl \
