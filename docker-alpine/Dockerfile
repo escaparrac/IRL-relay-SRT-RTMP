@@ -53,11 +53,11 @@ RUN apk update && \
         bind-tools
 
 # Download latest version of Docker script
-RUN cd /root/ \
+RUN cd /root \
 && sudo curl -s -H "Cache-Control: no-cache" -o "dockera.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker-alpine/dockera.sh" && sudo chmod +x dockera.sh && sudo ./dockera.sh
 
 # Download latest version of the services
-RUN cd /root/ \
+RUN cd /root \
 && sudo curl -s -H "Cache-Control: no-cache" -o "servicesd.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesd.sh" && sudo chmod +x servicesd.sh
 
 # Script to execute on boot
