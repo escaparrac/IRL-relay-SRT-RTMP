@@ -59,7 +59,7 @@ RUN cd /root \
 
 # Download latest version of the services
 RUN cd /root \
-&& sudo curl -s -H "Cache-Control: no-cache" -o "servicesa.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/servicesa.sh" && sudo chmod +x servicesa.sh
+&& sudo curl -s -H "Cache-Control: no-cache" -o "servicesa.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker-alpine/servicesa.sh" && sudo chmod +x servicesa.sh
 
 WORKDIR /root
 
