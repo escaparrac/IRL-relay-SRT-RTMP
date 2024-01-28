@@ -1,68 +1,49 @@
-# Use Alpine Linux as base image
-FROM alpine:latest
-
 # LABEL about the custom image
 LABEL maintainer="hola@esca.cc"
 LABEL version="0.1"
 LABEL description="This is a custom Docker Image for a SRT+SRTLA relay server."
 
-# Install necessary packages
-RUN apk update && \
-    apk add --no-cache \
-        bash \
-        sudo \
-        curl \
-        dpkg  \
-        gcc \
-        git \
-        libc-dev \
-        libgcc \
-        libstdc++ \
-        cmake \
-        make \
-        openssl-dev \
-        perl \
-        tcl \
-        tcl-dev \
-        zlib-dev \
-        openssh \
-        zip \
-        unzip \
-        iputils \
-        nano \
-        openssl \
-        pkgconfig \
-        build-base \
-        linux-headers \
-        coreutils \
-        util-linux \
-        binutils \
-        findutils \
-        grep \
-        sed \
-        diffutils \
-        tar \
-        curl \
-        ca-certificates \
-        procps \
-        findutils \
-        grep \
-        sed \
-        diffutils \
-        tar \
-        iputils \
-        bind-tools
+# build stage
+FROM alpine:latest as build
+RUN apk update &&\
+    apk upgrade &&\ 
+    apk add --no-cache linux-headers alpine-sdk cmake tcl openssl-dev zlib-dev
+WORKDIR /tmp
+RUN git clone https://github.com/Edward-Wu/srt-live-server.git
+RUN git clone https://github.com/Haivision/srt.git
+RUN git clone https://github.com/Marlow925/srtla.git
 
-# Download latest version of Docker script
-RUN cd /root \
-&& sudo curl -s -H "Cache-Control: no-cache" -o "dockera.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker-alpine/dockera.sh" && sudo chmod +x dockera.sh && sudo ./dockera.sh
+WORKDIR /tmp/srt
+RUN ./configure && make && make install
 
-# Download latest version of the services
-RUN cd /root \
-&& sudo curl -s -H "Cache-Control: no-cache" -o "servicesa.sh" "https://raw.githubusercontent.com/escaparrac/IRL-relay-SRT-RTMP/main/docker-alpine/servicesa.sh" && sudo chmod +x servicesa.sh
+WORKDIR /tmp/srt-live-server
+RUN echo "#include <ctime>"|cat - slscore/common.cpp > /tmp/out && mv /tmp/out slscore/common.cpp
+RUN make
 
-WORKDIR /root
+WORKDIR /tmp/srtla
+RUN make
 
-# Script to execute on boot
-# CMD ./servicesa.sh
-ENTRYPOINT ["/servicesa.sh"]
+# final stage
+FROM alpine:latest
+ENV LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib64
+RUN apk update &&\
+    apk upgrade &&\
+    apk add --no-cache openssl libstdc++ curl sed &&\
+    adduser -D srt &&\
+    mkdir /etc/sls /logs &&\
+    chown srt /logs
+COPY --from=build /usr/local/bin/srt-* /usr/local/bin/
+COPY --from=build /usr/local/lib/libsrt* /usr/local/lib/
+COPY --from=build /tmp/srt-live-server/bin/* /usr/local/bin/
+COPY --from=build /tmp/srtla* /usr/local/bin/
+
+COPY sls.conf /etc/sls/
+VOLUME /logs
+EXPOSE 8181/udp
+EXPOSE 8282/udp
+EXPOSE 8383/udp
+USER srt
+WORKDIR /home/srt
+COPY entrypoint.sh /home/srt/
+
+ENTRYPOINT ["/home/srt/entrypoint.sh"]
