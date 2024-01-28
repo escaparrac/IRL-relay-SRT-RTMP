@@ -64,4 +64,5 @@ RUN cd /root \
 WORKDIR /root
 
 # Script to execute on boot
-CMD ./servicesa.sh
+# CMD ./servicesa.sh
+ENTRYPOINT ["/servicesa.sh"]
