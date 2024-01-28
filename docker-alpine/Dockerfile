@@ -1,8 +1,3 @@
-# LABEL about the custom image
-LABEL maintainer="hola@esca.cc"
-LABEL version="0.1"
-LABEL description="This is a custom Docker Image for a SRT+SRTLA relay server."
-
 # build stage
 FROM alpine:latest as build
 RUN apk update &&\
@@ -22,6 +17,11 @@ RUN make
 
 WORKDIR /tmp/srtla
 RUN make
+
+# LABEL about the custom image
+LABEL maintainer="hola@esca.cc"
+LABEL version="0.1"
+LABEL description="This is a custom Docker Image for a SRT+SRTLA relay server."
 
 # final stage
 FROM alpine:latest
