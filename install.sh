@@ -80,7 +80,7 @@ echo "SRT Server correctly installed"
 
 echo "Downloading and installing SLS"
 
-sudo git clone https://gitlab.com/mattwb65/srt-live-server.git -q > /dev/null 2>&1
+sudo git clone https://github.com/escaparrac/srt-live-server.git -q > /dev/null 2>&1
 cd srt-live-server
 sudo make -j8 -s > /dev/null 2>&1
 sudo mv sls.conf sls.bak
